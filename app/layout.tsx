@@ -1,20 +1,22 @@
-import { ThemeProvider } from "./components/theme-provider"
-import type React from "react"
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Aakash Subedi",
+  description: "Portfolio of Aakash Subedi",
+  icons: {
+    icon: "/me.jpg",
+  },
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background text-foreground transition-colors">
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
-  )
+  );
 }
-
-
-
-import './globals.css'
