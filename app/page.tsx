@@ -131,14 +131,18 @@ export default function Home() {
                     size="icon"
                     className="rounded-full h-8 w-8"
                   >
-                    <Github className="w-3 h-3" />
+                    <a href="tts://github.com/subediaakash">
+                      <Github className="w-3 h-3" />
+                    </a>
                   </Button>
                   <Button
                     variant="outline"
                     size="icon"
                     className="rounded-full h-8 w-8"
                   >
-                    <Linkedin className="w-3 h-3" />
+                    <a href="https://www.linkedin.com/in/aakash-subedi-a9986625a/">
+                      <Linkedin className="w-3 h-3" />
+                    </a>
                   </Button>
                 </div>
               </CardContent>
