@@ -24,38 +24,23 @@ export default function Home() {
   const frontendSkills = [
     "React.js",
     "Next.js",
-    "Redux",
     "Jotai",
     "Tanstack Query",
     "Three.js",
     "Framer Motion",
     "Tailwind",
-    "ShadCn",
   ];
   const backendSkills = [
     "Express.js",
     "Nest.js",
     "PostgreSQL",
-    "MongoDB",
     "Websockets",
     "WRTC",
     "Redis",
     "Langchain",
     "FastAPI",
   ];
-  const tools = [
-    "Git",
-    "Vim",
-    "Docker",
-    "Nginx",
-    "AWS",
-    "Azure",
-    "Digital Ocean",
-    "Cloudinary",
-    "Puppeteer",
-    "Cypress",
-    "Jest",
-  ];
+  const tools = ["Git", "Vim", "Docker", "AWS", "Renderer", "Puppeteer"];
   const languages = ["Python", "TypeScript", "C++", "Java", "Go"];
 
   return (
