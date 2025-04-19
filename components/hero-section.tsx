@@ -54,9 +54,9 @@ export default function HeroSection() {
           >
             <p className="text-zinc-300 text-sm md:text-base mt-6 mb-8 max-w-lg">
               Yet another full stack developer too . Trying to be what a 12 year
-              kid used to dream of. Trying to build some useful stuff more than
-              a project, so that people use it. I may not have strong porfolio
-              like others but i shall catch on soon.
+              kid used to dream of. Building some useful stuff more than a
+              project, so that people use it. I may not have strong porfolio but
+              i shall catch on soon.
             </p>
           </motion.div>
 
