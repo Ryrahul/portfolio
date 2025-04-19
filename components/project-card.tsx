@@ -38,7 +38,7 @@ export default function ProjectCard({
           <a href={repoUrl} target="_blank" rel="noopener noreferrer">
             <Button
               variant="ghost"
-              className="text-zinc-400 hover:text-white p-0 text-sm group-hover:translate-x-1 transition-transform"
+              className="text-zinc-400 hover:text-black p-0 text-sm group-hover:translate-x-1 transition-transform"
             >
               View Project <ArrowUpRight className="ml-1 h-3 w-3" />
             </Button>
