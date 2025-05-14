@@ -103,7 +103,7 @@ export default function HeroSection() {
               size="icon"
               className="rounded-full text-zinc-400 hover:text-black"
             >
-              <a href="https://x.com/Aakash12527680">
+              <a href="https://x.com/void_aakash">
                 <Twitter className="h-5 w-5" />
               </a>
             </Button>

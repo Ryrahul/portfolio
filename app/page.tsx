@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
@@ -10,6 +11,8 @@ import SkillBadge from "@/components/skill-badge";
 import { Button } from "@/components/ui/button";
 import HeroSection from "@/components/hero-section";
 import { Card, CardContent } from "@/components/ui/card";
+import GitHubContributions from "@/components/github-contributions";
+import GithubCalender from "@/components/github-contributions";
 
 export default function Home() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -164,6 +167,96 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="text-2xl font-bold mb-6 text-white"
         >
+          GitHub Contributions
+        </motion.h2>
+
+        <GithubCalender />
+
+        <motion.h2
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-bold mb-6 text-white"
+        >
+          Experience
+        </motion.h2>
+
+        <Card className="bg-zinc-900/50 border-zinc-800 mb-10">
+          <CardContent className="p-4">
+            <div className="space-y-6">
+              <ExperienceItem
+                title="Lead"
+                company="Neuron Club, Jain University"
+                period="Oct 2024-Present"
+                details={[
+                  "Delivered comprehensive full-stack development workshops encompassing modern frontend technologies like React and backend technologies like Node.js to 55 students, achieving a 95% course completion rate and positive feedback.",
+                  "Provided mentorship to budding developers with early coding experience.",
+                ]}
+                index={0}
+              />
+
+              <ExperienceItem
+                title="Web Facilitator"
+                company="GDSC, Jain University"
+                period="Sept 2024-March 2025"
+                details={[
+                  "Conducted full-stack development workshops, teaching modern frontend and backend technologies.",
+                  "Mentored students in React, Next.js, Express.js, and database management.",
+                  "Assisted students in understanding best practices for scalable and high-performance web applications.",
+                ]}
+                index={1}
+              />
+            </div>
+          </CardContent>
+        </Card>
+
+        <motion.h2
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-bold mb-6 text-white"
+        >
+          Projects
+        </motion.h2>
+
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 "
+          id="projects"
+        >
+          <ProjectCard
+            title="Google Docs Clone"
+            description="Developed and tested a real-time collaborative text editor implemented user permissions, file sharing, and rich text formatting features. Ensured reliability and performance through comprehensive testing with Jest and Cypress."
+            index={0}
+            repoUrl="https://github.com/subediaakash/Google-Docs-Like-Text-Editor"
+          />
+
+          <ProjectCard
+            title="Course Finder"
+            description="Developed course finding website with personalized search history and wishlists and earning recognition from the engineers working with TVS and professors for the user experience and quality of code."
+            index={2}
+            repoUrl="https://github.com/subediaakash/find-the-right-course/"
+          />
+
+          <ProjectCard
+            title="Splitwise Clone"
+            description="Built a Splitwise clone using Next.js for seamless bill splitting among friends. Added features like bill tracking, history, and a pseudo-payment system."
+            index={3}
+            repoUrl="https://github.com/subediaakash/splitwise-clone"
+          />
+          <ProjectCard
+            title="Study Sync"
+            description="Built a collaborative study platform where students can form groups, set academic goals, and participate in focused Pomodoro-based study sessions, a concept that received positive feedback from several angel investors."
+            index={1}
+            repoUrl="https://github.com/subediaakash/Study-Sync"
+          />
+        </div>
+
+        <motion.h2
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-bold mb-6 text-white"
+        >
           Skills
         </motion.h2>
 
@@ -257,85 +350,6 @@ export default function Home() {
             </div>
           </CardContent>
         </Card>
-
-        <motion.h2
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-bold mb-6 text-white"
-        >
-          Experience
-        </motion.h2>
-
-        <Card className="bg-zinc-900/50 border-zinc-800 mb-10">
-          <CardContent className="p-4">
-            <div className="space-y-6">
-              <ExperienceItem
-                title="Lead"
-                company="Neuron Club, Jain University"
-                period="Oct 2024-Present"
-                details={[
-                  "Delivered comprehensive full-stack development workshops encompassing modern frontend technologies like React and backend technologies like Node.js to 55 students, achieving a 95% course completion rate and positive feedback.",
-                  "Provided mentorship to budding developers with early coding experience.",
-                ]}
-                index={0}
-              />
-
-              <ExperienceItem
-                title="Web Facilitator"
-                company="GDSC, Jain University"
-                period="Sept 2024-March 2025"
-                details={[
-                  "Conducted full-stack development workshops, teaching modern frontend and backend technologies.",
-                  "Mentored students in React, Next.js, Express.js, and database management.",
-                  "Assisted students in understanding best practices for scalable and high-performance web applications.",
-                ]}
-                index={1}
-              />
-            </div>
-          </CardContent>
-        </Card>
-
-        <motion.h2
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-bold mb-6 text-white"
-        >
-          Projects
-        </motion.h2>
-
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 "
-          id="projects"
-        >
-          <ProjectCard
-            title="Google Docs Clone"
-            description="Developed and tested a real-time collaborative text editor implemented user permissions, file sharing, and rich text formatting features. Ensured reliability and performance through comprehensive testing with Jest and Cypress."
-            index={0}
-            repoUrl="https://github.com/subediaakash/Google-Docs-Like-Text-Editor"
-          />
-
-          <ProjectCard
-            title="Course Finder"
-            description="Developed course finding website with personalized search history and wishlists and earning recognition from the engineers working with TVS and professors for the user experience and quality of code."
-            index={2}
-            repoUrl="https://github.com/subediaakash/find-the-right-course/"
-          />
-
-          <ProjectCard
-            title="Splitwise Clone"
-            description="Built a Splitwise clone using Next.js for seamless bill splitting among friends. Added features like bill tracking, history, and a pseudo-payment system."
-            index={3}
-            repoUrl="https://github.com/subediaakash/splitwise-clone"
-          />
-          <ProjectCard
-            title="Study Sync"
-            description="Built a collaborative study platform where students can form groups, set academic goals, and participate in focused Pomodoro-based study sessions, a concept that received positive feedback from several angel investors."
-            index={1}
-            repoUrl="https://github.com/subediaakash/Study-Sync"
-          />
-        </div>
 
         <motion.div
           initial={{ y: 20, opacity: 0 }}
