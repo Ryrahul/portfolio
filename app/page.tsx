@@ -159,7 +159,7 @@ export default function Home() {
           </div>
 
           {/* GitHub Contributions */}
-          <div className="space-y-6">
+          <div className="space-y-6 flex justify-center items-center flex-col">
             <motion.h2
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
