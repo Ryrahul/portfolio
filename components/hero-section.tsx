@@ -78,10 +78,9 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <p className="text-zinc-300 text-sm md:text-base mt-6 mb-8 max-w-lg mx-auto">
-              Yet another full stack developer too. Trying to be what a 12 year
-              kid used to dream of. Building some useful stuff more than a
-              project, so that people use it. I may not have strong portfolio
-              but I shall catch on soon.
+              Hey Aakash this side, Glad you are here . Scroll down to see who
+              am I and what have I done so far . I would love to take your
+              suggestions and feedbacks on my works .
             </p>
           </motion.div>
 

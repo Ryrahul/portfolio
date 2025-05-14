@@ -91,14 +91,14 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <Card className="bg-zinc-900/50 border-zinc-800 overflow-hidden">
-                <CardContent className="p-6 md:grid md:grid-cols-2 gap-6 text-center text-sm text-zinc-300">
+                <CardContent className="p-6 md:grid md:grid-cols-2 md:gap-6 gap-y-8 text-sm text-zinc-300">
                   {/* Contact Section */}
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4 text-white">
+                  <div className="flex flex-col items-center text-center gap-2">
+                    <h3 className="text-lg font-semibold text-white mb-2">
                       Contact
                     </h3>
                     <p>Jakkashandra, Kanakapura</p>
-                    <div className="flex items-center justify-center gap-2 mt-2">
+                    <div className="flex items-center justify-center gap-2">
                       <Mail className="w-4 h-4" />
                       <a
                         href="mailto:contact.aakash77@gmail.com"
@@ -107,18 +107,16 @@ export default function Home() {
                         contact.aakash77@gmail.com
                       </a>
                     </div>
-                    <div className="flex justify-center mt-2">
-                      <a
-                        href="https://devaakash.xyz"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 hover:text-purple-400 transition-colors"
-                      >
-                        devaakash.xyz
-                        <ArrowUpRight className="w-4 h-4" />
-                      </a>
-                    </div>
-                    <div className="flex gap-3 mt-4 justify-center">
+                    <a
+                      href="https://devaakash.xyz"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 hover:text-purple-400 transition-colors"
+                    >
+                      devaakash.xyz
+                      <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                    <div className="flex gap-3 mt-3">
                       <Button
                         variant="outline"
                         size="icon"
@@ -141,8 +139,8 @@ export default function Home() {
                   </div>
 
                   {/* Education Section */}
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4 text-white">
+                  <div className="flex flex-col items-center text-center gap-2">
+                    <h3 className="text-lg font-semibold text-white mb-2">
                       Education
                     </h3>
                     <p className="font-medium">
