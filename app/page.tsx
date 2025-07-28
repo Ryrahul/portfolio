@@ -75,7 +75,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-zinc-300 text-sm text-center"
             >
-              Software developer and OOP enthusiast skilled in React, Next.js,
+              Software developer skilled in React, Next.js,
               Express.js, and PostgreSQL, currently delving into AI integration
               and application testing. Experienced in building software
               solutions, incorporating artificial intelligence, and conducting
@@ -183,24 +183,23 @@ export default function Home() {
               <CardContent className="p-6">
                 <div className="space-y-8">
                   <ExperienceItem
-                    title="Lead"
-                    company="Neuron Club, Jain University"
-                    period="Oct 2024-Present"
+                    title="Software Developer Intern"
+                    company="Ainocular"
+                    period="July 2025-Present"
                     details={[
-                      "Delivered comprehensive full-stack development workshops encompassing modern frontend technologies like React and backend technologies like Node.js to 55 students, achieving a 95% course completion rate and positive feedback.",
-                      "Provided mentorship to budding developers with early coding experience.",
+                      "Developing and testing software solutions with a focus on scalability and performance.",
+                      "Incorporating artificial intelligence into applications to enhance functionality and user experience.",
                     ]}
                     index={0}
                   />
 
                   <ExperienceItem
-                    title="Web Facilitator"
-                    company="GDSC, Jain University"
-                    period="Sept 2024-March 2025"
+                    title="Software Developer Intern"
+                    company="Lookaround.in"
+                    period="Jan 2025-June 2025"
                     details={[
-                      "Conducted full-stack development workshops, teaching modern frontend and backend technologies.",
-                      "Mentored students in React, Next.js, Express.js, and database management.",
-                      "Assisted students in understanding best practices for scalable and high-performance web applications.",
+                      "Built company's saas idea's backend from scratch using Express.js and PostgreSQL.",
+                      "Refactored existing codebase to improve performance and maintainability.",
                     ]}
                     index={1}
                   />
