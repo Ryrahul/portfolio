@@ -23,6 +23,55 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
+  // Animation variants for sections
+  const sectionVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.6, -0.05, 0.01, 0.99],
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.6, -0.05, 0.01, 0.99],
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.95,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.6, -0.05, 0.01, 0.99],
+      },
+    },
+  };
+
   const frontendSkills = [
     "React.js",
     "Next.js",
@@ -52,135 +101,174 @@ export default function Home() {
       </div>
 
       {/* Content Container with consistent width and centering */}
-      <div className="w-full max-w-3xl px-4 sm:px-6 py-12 mx-auto">
+      <div className="w-full max-w-4xl px-4 sm:px-6 py-16 mx-auto space-y-20">
+        {/* About Me Section */}
         <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-12"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-8"
+          id="about"
         >
-          {/* About Me Section */}
-          <div className="space-y-6" id="about">
-            <motion.h2
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-bold text-white text-center"
-            >
+          <motion.div variants={itemVariants} className="text-center space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               About Me
-            </motion.h2>
-            <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-zinc-300 text-sm text-center"
-            >
-              Software developer skilled in React, Next.js,
-              Express.js, and PostgreSQL, currently delving into AI integration
-              and application testing. Experienced in building software
-              solutions, incorporating artificial intelligence, and conducting
-              tests to ensure scalability and performance.
-            </motion.p>
-          </div>
+            </h2>
+            <div className="w-20 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+          </motion.div>
 
-          {/* Contact and Education Cards - Now in a vertical layout */}
-          <div className="max-w-3xl mx-auto">
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Card className="bg-zinc-900/50 border-zinc-800 overflow-hidden">
-                <CardContent className="p-6 md:grid md:grid-cols-2 md:gap-6 gap-y-8 text-sm text-zinc-300">
-                  {/* Contact Section */}
-                  <div className="flex flex-col items-center text-center gap-2">
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      Contact
-                    </h3>
-                    <p>Jakkashandra, Kanakapura</p>
-                    <div className="flex items-center justify-center gap-2">
-                      <Mail className="w-4 h-4" />
-                      <a
-                        href="mailto:contact.aakash77@gmail.com"
-                        className="hover:text-purple-400 transition-colors"
-                      >
-                        contact.aakash77@gmail.com
-                      </a>
-                    </div>
+          <motion.p
+            variants={itemVariants}
+            className="text-zinc-300 text-base md:text-lg text-center leading-relaxed max-w-3xl mx-auto"
+          >
+            Software developer skilled in React, Next.js, Express.js, and
+            PostgreSQL, currently delving into AI integration and application
+            testing. Experienced in building software solutions, incorporating
+            artificial intelligence, and conducting tests to ensure scalability
+            and performance.
+          </motion.p>
+        </motion.section>
+
+        {/* Contact and Education Cards */}
+        <motion.section
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-4xl mx-auto"
+        >
+          <motion.div variants={cardVariants}>
+            <Card className="bg-zinc-900/60 border-zinc-800/50 overflow-hidden backdrop-blur-sm card-hover">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10"></div>
+              <CardContent className="p-8 md:grid md:grid-cols-2 md:gap-8 gap-y-8 text-sm text-zinc-300 relative">
+                {/* Contact Section */}
+                <motion.div
+                  variants={itemVariants}
+                  className="flex flex-col items-center text-center gap-3"
+                >
+                  <h3 className="text-xl font-semibold text-white mb-4">
+                    Contact
+                  </h3>
+                  <p className="text-zinc-300">Jakkashandra, Kanakapura</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <Mail className="w-4 h-4 text-purple-400" />
                     <a
-                      href="https://devaakash.xyz"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 hover:text-purple-400 transition-colors"
+                      href="mailto:contact.aakash77@gmail.com"
+                      className="hover:text-purple-400 transition-colors duration-300"
                     >
-                      devaakash.xyz
-                      <ArrowUpRight className="w-4 h-4" />
+                      contact.aakash77@gmail.com
                     </a>
-                    <div className="flex gap-3 mt-3">
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="rounded-full h-8 w-8 bg-zinc-900/50 border-zinc-800 hover:bg-zinc-800"
-                      >
-                        <a href="https://github.com/subediaakash">
-                          <Github className="w-4 h-4" />
-                        </a>
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="rounded-full h-8 w-8 bg-zinc-900/50 border-zinc-800 hover:bg-zinc-800"
-                      >
-                        <a href="https://www.linkedin.com/in/aakash-subedi-a9986625a/">
-                          <Linkedin className="w-4 h-4" />
-                        </a>
-                      </Button>
-                    </div>
                   </div>
-
-                  {/* Education Section */}
-                  <div className="flex flex-col items-center text-center gap-2">
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      Education
-                    </h3>
-                    <p className="font-medium">
-                      B.Tech Computer Science and Engineering
-                    </p>
-                    <p>Jain University, Bengaluru, India</p>
-                    <p>Specialisation in Artificial Intelligence</p>
-                    <p>Sep 2022 – Apr 2026</p>
-                    <p>Current CGPA: 8.7</p>
+                  <a
+                    href="https://devaakash.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 hover:text-purple-400 transition-colors duration-300"
+                  >
+                    devaakash.xyz
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                  <div className="flex gap-3 mt-4">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full h-9 w-9 bg-zinc-900/50 border-zinc-700 hover:bg-zinc-800/50 hover:border-purple-500/50 smooth-hover"
+                    >
+                      <a
+                        href="https://github.com/subediaakash"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full h-9 w-9 bg-zinc-900/50 border-zinc-700 hover:bg-zinc-800/50 hover:border-purple-500/50 smooth-hover"
+                    >
+                      <a
+                        href="https://www.linkedin.com/in/aakash-subedi-a9986625a/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                    </Button>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
+                </motion.div>
 
-          {/* GitHub Contributions */}
-          <div className="space-y-6 flex justify-center items-center flex-col">
-            <motion.h2
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-bold text-white text-center"
-            >
+                {/* Education Section */}
+                <motion.div
+                  variants={itemVariants}
+                  className="flex flex-col items-center text-center gap-2"
+                >
+                  <h3 className="text-xl font-semibold text-white mb-4">
+                    Education
+                  </h3>
+                  <p className="font-medium text-zinc-200">
+                    B.Tech Computer Science and Engineering
+                  </p>
+                  <p className="text-zinc-300">
+                    Jain University, Bengaluru, India
+                  </p>
+                  <p className="text-zinc-400">
+                    Specialisation in Artificial Intelligence
+                  </p>
+                  <p className="text-zinc-400">Sep 2022 – Apr 2026</p>
+                  <p className="text-purple-400 font-medium">
+                    Current CGPA: 8.7
+                  </p>
+                </motion.div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.section>
+
+        {/* GitHub Contributions */}
+        <motion.section
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-8 w-full"
+        >
+          <motion.div variants={itemVariants} className="text-center space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               GitHub Contributions
-            </motion.h2>
-            <GitHubContributions />
-          </div>
+            </h2>
+            <div className="w-20 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+          </motion.div>
+          <motion.div
+            variants={itemVariants}
+            className="w-full flex justify-center"
+          >
+            <div className="w-full max-w-4xl px-2">
+              <GitHubContributions />
+            </div>
+          </motion.div>
+        </motion.section>
 
-          {/* Experience Section */}
-          <div className="space-y-6">
-            <motion.h2
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-bold text-white text-center"
-            >
+        {/* Experience Section */}
+        <motion.section
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-8"
+        >
+          <motion.div variants={itemVariants} className="text-center space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               Experience
-            </motion.h2>
-            <Card className="bg-zinc-900/50 border-zinc-800">
-              <CardContent className="p-6">
+            </h2>
+            <div className="w-20 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+          </motion.div>
+
+          <motion.div variants={cardVariants}>
+            <Card className="bg-zinc-900/60 border-zinc-800/50 backdrop-blur-sm card-hover">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10"></div>
+              <CardContent className="p-8 relative">
                 <div className="space-y-8">
                   <ExperienceItem
                     title="Software Developer Intern"
@@ -206,72 +294,81 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
+          </motion.div>
+        </motion.section>
+
+        {/* Projects Section */}
+        <motion.section
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-8"
+          id="projects"
+        >
+          <motion.div variants={itemVariants} className="text-center space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Featured Projects
+            </h2>
+            <div className="w-20 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+          </motion.div>
+
+          <div className="grid gap-6 md:grid-cols-2 auto-rows-fr">
+            <ProjectCard
+              title="Google Docs Clone"
+              description="Developed and tested a real-time collaborative text editor implemented user permissions, file sharing, and rich text formatting features. Ensured reliability and performance through comprehensive testing with Jest and Cypress."
+              index={0}
+              repoUrl="https://github.com/subediaakash/Google-Docs-Like-Text-Editor"
+            />
+
+            <ProjectCard
+              title="Course Finder"
+              description="Developed course finding website with personalized search history and wishlists and earning recognition from the engineers working with TVS and professors for the user experience and quality of code."
+              index={1}
+              repoUrl="https://github.com/subediaakash/find-the-right-course/"
+            />
+
+            <ProjectCard
+              title="Splitwise Clone"
+              description="Built a Splitwise clone using Next.js for seamless bill splitting among friends. Added features like bill tracking, history, and a pseudo-payment system."
+              index={2}
+              repoUrl="https://github.com/subediaakash/splitwise-clone"
+            />
+
+            <ProjectCard
+              title="Study Sync"
+              description="Built a collaborative study platform where students can form groups, set academic goals, and participate in focused Pomodoro-based study sessions, a concept that received positive feedback from several angel investors."
+              index={3}
+              repoUrl="https://github.com/subediaakash/Study-Sync"
+            />
           </div>
+        </motion.section>
 
-          {/* Projects Section - Now in a vertical layout for consistency */}
-          <div className="space-y-6">
-            <motion.h2
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-bold text-white text-center"
-            >
-              Projects
-            </motion.h2>
-            <div className="space-y-6" id="projects">
-              <ProjectCard
-                title="Google Docs Clone"
-                description="Developed and tested a real-time collaborative text editor implemented user permissions, file sharing, and rich text formatting features. Ensured reliability and performance through comprehensive testing with Jest and Cypress."
-                index={0}
-                repoUrl="https://github.com/subediaakash/Google-Docs-Like-Text-Editor"
-              />
+        {/* Skills Section */}
+        <motion.section
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-8"
+        >
+          <motion.div variants={itemVariants} className="text-center space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Skills & Technologies
+            </h2>
+            <div className="w-20 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+          </motion.div>
 
-              <ProjectCard
-                title="Course Finder"
-                description="Developed course finding website with personalized search history and wishlists and earning recognition from the engineers working with TVS and professors for the user experience and quality of code."
-                index={2}
-                repoUrl="https://github.com/subediaakash/find-the-right-course/"
-              />
-
-              <ProjectCard
-                title="Splitwise Clone"
-                description="Built a Splitwise clone using Next.js for seamless bill splitting among friends. Added features like bill tracking, history, and a pseudo-payment system."
-                index={3}
-                repoUrl="https://github.com/subediaakash/splitwise-clone"
-              />
-
-              <ProjectCard
-                title="Study Sync"
-                description="Built a collaborative study platform where students can form groups, set academic goals, and participate in focused Pomodoro-based study sessions, a concept that received positive feedback from several angel investors."
-                index={1}
-                repoUrl="https://github.com/subediaakash/Study-Sync"
-              />
-            </div>
-          </div>
-
-          {/* Skills Section */}
-          <div className="space-y-6">
-            <motion.h2
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-bold text-white text-center"
-            >
-              Skills
-            </motion.h2>
-            <Card className="bg-zinc-900/50 border-zinc-800 overflow-hidden">
+          <motion.div variants={cardVariants}>
+            <Card className="bg-zinc-900/60 border-zinc-800/50 overflow-hidden backdrop-blur-sm card-hover">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10"></div>
-              <CardContent className="p-6 relative">
-                <div className="space-y-8">
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                  >
-                    <h3 className="text-lg font-semibold mb-4 text-white">
+              <CardContent className="p-8 relative">
+                <div className="space-y-10">
+                  <motion.div variants={itemVariants}>
+                    <h3 className="text-xl font-semibold mb-6 text-white text-center">
                       Frontend
                     </h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-3 justify-center">
                       {frontendSkills.map((skill, index) => (
                         <SkillBadge
                           key={skill}
@@ -283,15 +380,11 @@ export default function Home() {
                     </div>
                   </motion.div>
 
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    <h3 className="text-lg font-semibold mb-4 text-white">
+                  <motion.div variants={itemVariants}>
+                    <h3 className="text-xl font-semibold mb-6 text-white text-center">
                       Backend
                     </h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-3 justify-center">
                       {backendSkills.map((skill, index) => (
                         <SkillBadge
                           key={skill}
@@ -303,15 +396,11 @@ export default function Home() {
                     </div>
                   </motion.div>
 
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    <h3 className="text-lg font-semibold mb-4 text-white">
+                  <motion.div variants={itemVariants}>
+                    <h3 className="text-xl font-semibold mb-6 text-white text-center">
                       Tools
                     </h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-3 justify-center">
                       {tools.map((tool, index) => (
                         <SkillBadge
                           key={tool}
@@ -323,15 +412,11 @@ export default function Home() {
                     </div>
                   </motion.div>
 
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
-                    <h3 className="text-lg font-semibold mb-4 text-white">
+                  <motion.div variants={itemVariants}>
+                    <h3 className="text-xl font-semibold mb-6 text-white text-center">
                       Languages
                     </h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-3 justify-center">
                       {languages.map((language, index) => (
                         <SkillBadge
                           key={language}
@@ -345,16 +430,23 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
+        </motion.section>
 
-          {/* Contact Button */}
+        {/* Enhanced Contact Button */}
+        <motion.section
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex justify-center pt-8"
+        >
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-center pt-6"
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-2 rounded-full">
+            <Button className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-700 text-white px-10 py-4 rounded-full text-lg font-medium btn-glow smooth-hover shadow-lg hover:shadow-xl">
               <Link href="mailto:contact.aakash77@gmail.com">Get In Touch</Link>
             </Button>
           </motion.div>
