@@ -27,6 +27,9 @@ const siteConfig = {
   twitterHandle: "@void_aakash",
   email: "contact.aakash77@gmail.com",
   location: "Bengaluru, India",
+  github: "https://github.com/subediaakash",
+  linkedin: "https://www.linkedin.com/in/aakash-subedi-a9986625a/",
+  twitter: "https://x.com/void_aakash",
 };
 
 export const viewport: Viewport = {
@@ -48,6 +51,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Aakash Subedi",
+    "subediaakash",
+    "void_aakash",
     "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
@@ -64,6 +69,7 @@ export const metadata: Metadata = {
     "AI Integration",
     "Express.js",
     "Portfolio",
+    "aksh.work",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -81,15 +87,20 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/me.jpg",
+    shortcut: "/me.jpg",
     apple: "/me.jpg",
   },
+  manifest: "/manifest.json",
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: "en_US",
     url: siteConfig.url,
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    firstName: "Aakash",
+    lastName: "Subedi",
+    username: "subediaakash",
     images: [
       {
         url: siteConfig.ogImage,
@@ -111,22 +122,42 @@ export const metadata: Metadata = {
     canonical: siteConfig.url,
   },
   category: "technology",
+  verification: {
+    // Add your Google Search Console verification code here
+    // google: "your-google-verification-code",
+  },
+  other: {
+    "google-site-verification": "", // Add your verification code
+  },
 };
 
-// JSON-LD Structured Data for Person
-const jsonLd = {
+// Enhanced JSON-LD Structured Data with multiple schemas
+const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${siteConfig.url}/#person`,
   name: siteConfig.name,
+  givenName: "Aakash",
+  familyName: "Subedi",
   url: siteConfig.url,
-  image: `${siteConfig.url}${siteConfig.ogImage}`,
+  image: {
+    "@type": "ImageObject",
+    url: `${siteConfig.url}${siteConfig.ogImage}`,
+    width: 400,
+    height: 400,
+  },
   email: `mailto:${siteConfig.email}`,
   jobTitle: "Full Stack Developer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Ainocular",
+  },
   description: siteConfig.description,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bengaluru",
-    addressCountry: "India",
+    addressRegion: "Karnataka",
+    addressCountry: "IN",
   },
   alumniOf: {
     "@type": "CollegeOrUniversity",
@@ -134,14 +165,10 @@ const jsonLd = {
     address: {
       "@type": "PostalAddress",
       addressLocality: "Bengaluru",
-      addressCountry: "India",
+      addressCountry: "IN",
     },
   },
-  sameAs: [
-    "https://github.com/subediaakash",
-    "https://www.linkedin.com/in/aakash-subedi-a9986625a/",
-    "https://x.com/void_aakash",
-  ],
+  sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.twitter],
   knowsAbout: [
     "React.js",
     "Next.js",
@@ -155,8 +182,57 @@ const jsonLd = {
     "AWS",
     "AI Integration",
     "Web Development",
+    "Full Stack Development",
   ],
 };
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteConfig.url}/#website`,
+  url: siteConfig.url,
+  name: siteConfig.name,
+  description: siteConfig.description,
+  publisher: {
+    "@id": `${siteConfig.url}/#person`,
+  },
+  inLanguage: "en-US",
+};
+
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${siteConfig.url}/#profilepage`,
+  url: siteConfig.url,
+  name: `${siteConfig.name} - Portfolio`,
+  description: siteConfig.description,
+  mainEntity: {
+    "@id": `${siteConfig.url}/#person`,
+  },
+  dateCreated: "2024-01-01",
+  dateModified: new Date().toISOString().split("T")[0],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteConfig.url,
+    },
+  ],
+};
+
+// Combine all schemas
+const jsonLdSchemas = [
+  personSchema,
+  websiteSchema,
+  profilePageSchema,
+  breadcrumbSchema,
+];
 
 export default function RootLayout({
   children,
@@ -173,9 +249,20 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${firaCode.variable}`}
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        {/* Multiple JSON-LD schemas for rich search results */}
+        {jsonLdSchemas.map((schema, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
         />
       </head>
       <body className="font-sans antialiased">{children}</body>
