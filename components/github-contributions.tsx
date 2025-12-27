@@ -42,6 +42,41 @@ function GithubCalender() {
               overflow-x: visible;
             }
 
+            /* FIX: Make all text visible with proper colors */
+            .react-calendar-graph text {
+              fill: #a1a1aa !important; /* zinc-400 */
+              font-size: 12px;
+            }
+
+            /* Month labels (Apr, May, Jun, etc.) */
+            .react-calendar-graph text.ContributionCalendar-label {
+              fill: #a78bfa !important; /* purple-400 */
+              font-weight: 500;
+            }
+
+            /* Day labels (Mon, Wed, Fri) */
+            .react-calendar-graph text {
+              fill: #71717a !important; /* zinc-500 */
+            }
+
+            /* Contribution count text */
+            .react-calendar-graph .contrib-legend,
+            .react-calendar-graph footer,
+            .react-calendar-graph span,
+            .react-calendar-graph div {
+              color: #a1a1aa !important; /* zinc-400 */
+            }
+
+            /* Links (Less, More, contribution count) */
+            .react-calendar-graph a {
+              color: #a78bfa !important; /* purple-400 */
+              text-decoration: underline;
+            }
+
+            .react-calendar-graph a:hover {
+              color: #c4b5fd !important; /* purple-300 */
+            }
+
             /* Ensure the calendar fits on mobile */
             @media (max-width: 640px) {
               .react-calendar-graph {
@@ -83,9 +118,12 @@ function GithubCalender() {
             totalCount={totalCount}
             hideColorLegend={false}
             hideTotalCount={false}
+            colorScheme="dark"
             theme={{
-              light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
               dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+            }}
+            labels={{
+              totalCount: "{{count}} contributions in the last year",
             }}
           />
         </div>

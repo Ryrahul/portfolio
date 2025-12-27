@@ -528,6 +528,42 @@ export default function Home() {
             </motion.div>
           </motion.section>
 
+          {/* Blog Section */}
+          <motion.section
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="space-y-8"
+            aria-labelledby="blog-heading"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="text-center space-y-4"
+            >
+              <h2
+                id="blog-heading"
+                className="text-3xl md:text-4xl font-bold text-white"
+              >
+                Blog
+              </h2>
+              <div className="section-divider" aria-hidden="true"></div>
+              <p className="text-zinc-400 max-w-2xl mx-auto">
+                Thoughts, learnings, and stories from my journey.
+              </p>
+            </motion.div>
+
+            <motion.div variants={cardVariants} className="flex justify-center">
+              <Link
+                href="/blogs"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900/60 border border-zinc-800/50 text-zinc-300 hover:text-purple-400 hover:border-purple-500/50 transition-all duration-300"
+              >
+                <span>Read my blog posts</span>
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+              </Link>
+            </motion.div>
+          </motion.section>
+
           {/* Enhanced Contact Button */}
           <motion.section
             variants={sectionVariants}
