@@ -189,7 +189,7 @@ export default function Home() {
                         </a>
                       </p>
                       <a
-                        href="https://aksh.work"
+                        href="https://www.aksh.work"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1 hover:text-purple-400 transition-colors duration-300 focus:outline-none focus:text-purple-400 justify-center"

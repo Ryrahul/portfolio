@@ -3,8 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://aksh.work/sitemap.xml
+Sitemap: https://www.aksh.work/sitemap.xml
 
 # Host
-Host: https://aksh.work
-
+Host: https://www.aksh.work

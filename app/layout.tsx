@@ -22,7 +22,7 @@ const siteConfig = {
   title: "Aakash Subedi - Full Stack Developer | React, Next.js, Node.js",
   description:
     "I'm Aakash Subedi, a Full Stack Developer specializing in React, Next.js, Express.js, and PostgreSQL. Explore my projects, experience, and skills in modern web development and AI integration.",
-  url: "https://aksh.work",
+  url: "https://www.aksh.work",
   ogImage: "/me.jpg",
   twitterHandle: "@void_aakash",
   email: "contact.aakash77@gmail.com",
