@@ -314,14 +314,25 @@ export default function Home() {
                 <CardContent className="p-8 relative">
                   <div className="space-y-8">
                     <ExperienceItem
-                      title="Software Developer Intern"
-                      company="Ainocular"
-                      period="July 2025-Present"
+                      title="Full Stack Engineer"
+                      company="Nihin Media"
+                      period="Jan 2026-Present"
                       details={[
-                        "Developing and testing software solutions with a focus on scalability and performance.",
-                        "Incorporating artificial intelligence into applications to enhance functionality and user experience.",
+                        "Integrating generative AI capabilities into the core product to enhance user experience.",
+                        "Maintaining and improving the product infrastructure for reliability and scalability.",
                       ]}
                       index={0}
+                    />
+
+                    <ExperienceItem
+                      title="Software Developer Intern"
+                      company="Ainocular"
+                      period="July 2025-Dec 2025"
+                      details={[
+                        "Developed and tested software solutions with a focus on scalability and performance.",
+                        "Incorporated artificial intelligence into applications to enhance functionality.",
+                      ]}
+                      index={1}
                     />
 
                     <ExperienceItem
@@ -329,10 +340,10 @@ export default function Home() {
                       company="Lookaround.in"
                       period="Jan 2025-June 2025"
                       details={[
-                        "Built company's saas idea's backend from scratch using Express.js and PostgreSQL.",
+                        "Built company's SaaS backend from scratch using Express.js and PostgreSQL.",
                         "Refactored existing codebase to improve performance and maintainability.",
                       ]}
-                      index={1}
+                      index={2}
                     />
                   </div>
                 </CardContent>
