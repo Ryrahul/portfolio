@@ -25,9 +25,9 @@
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
     
-    /* Font family variables */
-    --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-    --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, "SF Mono", monospace;
+    /* Font family variables - Updated for distinctive typography */
+    --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-fira-code), ui-monospace, SFMono-Regular, "SF Mono", monospace;
   }
 
   .dark {
@@ -72,20 +72,23 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* Typography */
+  /* Typography - Enhanced with Space Grotesk */
   h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
+    letter-spacing: -0.02em;
   }
   
   h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
+    letter-spacing: -0.03em;
   }
   
   h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
+    letter-spacing: -0.025em;
   }
   
   h3 {
@@ -94,12 +97,22 @@
   }
   
   p {
-    line-height: 1.7;
+    line-height: 1.75;
     font-weight: 400;
   }
   
   code, pre {
     font-family: var(--font-mono);
+  }
+  
+  /* Focus visible styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-purple-500;
+  }
+  
+  /* Skip to main content link - accessibility */
+  .skip-to-main {
+    @apply absolute left-0 top-0 z-[9999] -translate-y-full bg-purple-600 px-4 py-2 text-white transition-transform focus:translate-y-0;
   }
 }
 
@@ -155,6 +168,15 @@
   }
 }
 
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 .animate-blob {
   animation: blob 7s infinite;
 }
@@ -180,6 +202,11 @@
 
 .animate-pulse-slow {
   animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+  background-size: 200% 200%;
 }
 
 .animation-delay-2000 {
@@ -270,4 +297,26 @@
 
 .btn-glow:hover::before {
   left: 100%;
+}
+
+/* Text gradient animation */
+.text-gradient-animate {
+  background: linear-gradient(
+    90deg,
+    #a78bfa,
+    #60a5fa,
+    #22d3ee,
+    #a78bfa
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-x 4s ease infinite;
+}
+
+/* Section divider */
+.section-divider {
+  @apply w-20 h-0.5 mx-auto;
+  background: linear-gradient(90deg, #a855f7, #3b82f6);
 }

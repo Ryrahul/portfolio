@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://aksh.work/sitemap.xml
+
+# Host
+Host: https://aksh.work
+

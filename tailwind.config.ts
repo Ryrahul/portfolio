@@ -20,9 +20,14 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: [
+          "var(--font-space-grotesk)",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
         mono: [
-          "var(--font-jetbrains-mono)",
+          "var(--font-fira-code)",
           "ui-monospace",
           "SFMono-Regular",
           "SF Mono",
