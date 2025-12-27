@@ -370,28 +370,28 @@ export default function Home() {
             >
               <ProjectCard
                 title="Google Docs Clone"
-                description="Developed and tested a real-time collaborative text editor implemented user permissions, file sharing, and rich text formatting features. Ensured reliability and performance through comprehensive testing with Jest and Cypress."
+                description="Real-time collaborative text editor with user permissions, file sharing, and rich text formatting. Tested with Jest and Cypress."
                 index={0}
                 repoUrl="https://github.com/subediaakash/Google-Docs-Like-Text-Editor"
               />
 
               <ProjectCard
-                title="Course Finder"
-                description="Developed course finding website with personalized search history and wishlists and earning recognition from the engineers working with TVS and professors for the user experience and quality of code."
+                title="Zomato MCP"
+                description="AI agent that orders, lists, and manages food items. Implements Zomato's MCP functionality using TypeScript."
                 index={1}
-                repoUrl="https://github.com/subediaakash/find-the-right-course/"
+                repoUrl="https://github.com/subediaakash/zomato-mcp"
               />
 
               <ProjectCard
                 title="Splitwise Clone"
-                description="Built a Splitwise clone using Next.js for seamless bill splitting among friends. Added features like bill tracking, history, and a pseudo-payment system."
+                description="Bill splitting app built with Next.js. Features include expense tracking, payment history, and settlement system."
                 index={2}
                 repoUrl="https://github.com/subediaakash/splitwise-clone"
               />
 
               <ProjectCard
                 title="Study Sync"
-                description="Built a collaborative study platform where students can form groups, set academic goals, and participate in focused Pomodoro-based study sessions, a concept that received positive feedback from several angel investors."
+                description="Collaborative study platform with group formation, goal setting, and Pomodoro-based sessions. Praised by angel investors."
                 index={3}
                 repoUrl="https://github.com/subediaakash/Study-Sync"
               />
