@@ -105,7 +105,7 @@ export default function Home() {
 
       <main
         id="main-content"
-        className="flex min-h-screen flex-col items-center bg-gradient-to-b from-black to-zinc-900"
+        className="flex min-h-screen flex-col items-center bg-black"
         role="main"
       >
         {/* Hero Section */}
@@ -160,12 +160,8 @@ export default function Home() {
             aria-label="Contact and Education Information"
           >
             <motion.div variants={cardVariants}>
-              <Card className="bg-zinc-900/60 border-zinc-800/50 overflow-hidden backdrop-blur-sm card-hover">
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10"
-                  aria-hidden="true"
-                ></div>
-                <CardContent className="p-8 md:grid md:grid-cols-2 md:gap-8 gap-y-8 text-sm text-zinc-300 relative">
+              <Card className="bg-zinc-900/80 border-zinc-800 card-hover">
+                <CardContent className="p-8 md:grid md:grid-cols-2 md:gap-8 gap-y-8 text-sm text-zinc-300">
                   {/* Contact Section */}
                   <motion.div
                     variants={itemVariants}
@@ -178,12 +174,12 @@ export default function Home() {
                       <p className="text-zinc-300">Jakkashandra, Kanakapura</p>
                       <p className="flex items-center justify-center gap-2">
                         <Mail
-                          className="w-4 h-4 text-purple-400"
+                          className="w-4 h-4 text-zinc-400"
                           aria-hidden="true"
                         />
                         <a
                           href="mailto:contact.aakash77@gmail.com"
-                          className="hover:text-purple-400 transition-colors duration-300 focus:outline-none focus:text-purple-400"
+                          className="hover:text-white transition-colors duration-300 focus:outline-none focus:text-white"
                         >
                           contact.aakash77@gmail.com
                         </a>
@@ -192,7 +188,7 @@ export default function Home() {
                         href="https://www.aksh.work"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 hover:text-purple-400 transition-colors duration-300 focus:outline-none focus:text-purple-400 justify-center"
+                        className="flex items-center gap-1 hover:text-white transition-colors duration-300 focus:outline-none focus:text-white justify-center"
                       >
                         aksh.work
                         <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
@@ -207,7 +203,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Visit GitHub profile"
-                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-900/50 border border-zinc-700 hover:bg-zinc-800/50 hover:border-purple-500/50 smooth-hover text-zinc-400 hover:text-white transition-colors duration-300"
+                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500 smooth-hover text-zinc-400 hover:text-white transition-colors duration-300"
                       >
                         <Github className="w-4 h-4" aria-hidden="true" />
                       </a>
@@ -216,7 +212,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Visit LinkedIn profile"
-                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-900/50 border border-zinc-700 hover:bg-zinc-800/50 hover:border-purple-500/50 smooth-hover text-zinc-400 hover:text-white transition-colors duration-300"
+                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500 smooth-hover text-zinc-400 hover:text-white transition-colors duration-300"
                       >
                         <Linkedin className="w-4 h-4" aria-hidden="true" />
                       </a>
@@ -243,9 +239,7 @@ export default function Home() {
                     <time className="text-zinc-400" dateTime="2022-09/2026-04">
                       Sep 2022 – Apr 2026
                     </time>
-                    <p className="text-purple-400 font-medium">
-                      Current CGPA: 8.7
-                    </p>
+                    <p className="text-white font-medium">Current CGPA: 8.7</p>
                   </motion.div>
                 </CardContent>
               </Card>
@@ -306,12 +300,8 @@ export default function Home() {
             </motion.div>
 
             <motion.div variants={cardVariants}>
-              <Card className="bg-zinc-900/60 border-zinc-800/50 backdrop-blur-sm card-hover">
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10"
-                  aria-hidden="true"
-                ></div>
-                <CardContent className="p-8 relative">
+              <Card className="bg-zinc-900/80 border-zinc-800 card-hover">
+                <CardContent className="p-8">
                   <div className="space-y-8">
                     <ExperienceItem
                       title="Full Stack Engineer"
@@ -432,12 +422,8 @@ export default function Home() {
             </motion.div>
 
             <motion.div variants={cardVariants}>
-              <Card className="bg-zinc-900/60 border-zinc-800/50 overflow-hidden backdrop-blur-sm card-hover">
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10"
-                  aria-hidden="true"
-                ></div>
-                <CardContent className="p-8 relative">
+              <Card className="bg-zinc-900/80 border-zinc-800 card-hover">
+                <CardContent className="p-8">
                   <div className="space-y-10">
                     <motion.div variants={itemVariants}>
                       <h3 className="text-xl font-semibold mb-6 text-white text-center">
@@ -556,7 +542,7 @@ export default function Home() {
             <motion.div variants={cardVariants} className="flex justify-center">
               <Link
                 href="/blogs"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900/60 border border-zinc-800/50 text-zinc-300 hover:text-purple-400 hover:border-purple-500/50 transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 transition-all duration-300"
               >
                 <span>Read my blog posts</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
@@ -580,7 +566,7 @@ export default function Home() {
             >
               <a
                 href="mailto:contact.aakash77@gmail.com"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-700 text-white px-10 py-4 rounded-full text-lg font-medium btn-glow smooth-hover shadow-lg hover:shadow-xl transition-all duration-300"
+                className="inline-flex items-center justify-center bg-white text-black hover:bg-zinc-200 px-10 py-4 rounded-full text-lg font-medium smooth-hover shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Get In Touch
               </a>
@@ -589,14 +575,12 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="w-full border-t border-zinc-800/50 mt-20 bg-zinc-900/30 backdrop-blur-sm">
+        <footer className="w-full border-t border-zinc-800 mt-20 bg-zinc-950">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               {/* Logo/Name */}
               <div className="text-center md:text-left">
-                <p className="text-xl font-bold text-gradient-animate">
-                  Aakash Subedi
-                </p>
+                <p className="text-xl font-bold text-white">Aakash Subedi</p>
                 <p className="text-zinc-400 text-sm mt-1">
                   Full Stack Developer
                 </p>
@@ -609,7 +593,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="text-zinc-400 hover:text-purple-400 transition-colors duration-300"
+                  className="text-zinc-400 hover:text-white transition-colors duration-300"
                 >
                   <Github className="w-5 h-5" aria-hidden="true" />
                 </a>
@@ -618,14 +602,14 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="text-zinc-400 hover:text-purple-400 transition-colors duration-300"
+                  className="text-zinc-400 hover:text-white transition-colors duration-300"
                 >
                   <Linkedin className="w-5 h-5" aria-hidden="true" />
                 </a>
                 <a
                   href="mailto:contact.aakash77@gmail.com"
                   aria-label="Email"
-                  className="text-zinc-400 hover:text-purple-400 transition-colors duration-300"
+                  className="text-zinc-400 hover:text-white transition-colors duration-300"
                 >
                   <Mail className="w-5 h-5" aria-hidden="true" />
                 </a>

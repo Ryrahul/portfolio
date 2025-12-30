@@ -26,7 +26,7 @@ const sectionVariants = {
 
 export default function LifeOfAPie() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-black to-zinc-900">
+    <main className="flex min-h-screen flex-col items-center bg-black">
       {/* Header */}
       <header className="w-full max-w-3xl px-4 sm:px-6 pt-8">
         <motion.div
@@ -36,7 +36,7 @@ export default function LifeOfAPie() {
         >
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-purple-400 transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-300"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Blogs</span>
@@ -58,7 +58,7 @@ export default function LifeOfAPie() {
             {blogMeta.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20"
+                className="px-3 py-1 text-xs font-medium rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700"
               >
                 {tag}
               </span>
@@ -67,9 +67,7 @@ export default function LifeOfAPie() {
 
           {/* Title */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-400">
-              {blogMeta.title}
-            </span>
+            {blogMeta.title}
           </h1>
 
           {/* Meta Info */}
@@ -134,13 +132,13 @@ export default function LifeOfAPie() {
             </h2>
 
             <p>
-              This was also the year I received my first stipend  ₹10,000.
-              There was no going back since then. Right now, I'm working with a
+              This was also the year I received my first stipend ₹10,000. There
+              was no going back since then. Right now, I'm working with a
               Japanese-based startup, and I know it took me a lot to understand
               and discover my worth.
             </p>
 
-            <blockquote className="border-l-4 border-purple-500 pl-6 my-8 text-zinc-400 italic">
+            <blockquote className="border-l-4 border-zinc-500 pl-6 my-8 text-zinc-400 italic">
               "The job is not the end, but a start : a starting phase that will
               help me become an engineer who doesn't just write code, but writes
               code that scales."
@@ -204,7 +202,7 @@ export default function LifeOfAPie() {
             </p>
             <Link
               href="/blogs"
-              className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors duration-300"
+              className="text-zinc-400 hover:text-white text-sm font-medium transition-colors duration-300"
             >
               ← Back to all posts
             </Link>
@@ -213,12 +211,12 @@ export default function LifeOfAPie() {
       </article>
 
       {/* Footer */}
-      <footer className="w-full border-t border-zinc-800/50 mt-auto bg-zinc-900/30 backdrop-blur-sm">
+      <footer className="w-full border-t border-zinc-800 mt-auto bg-zinc-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
           <div className="flex items-center justify-center">
             <Link
               href="/"
-              className="text-zinc-400 hover:text-purple-400 transition-colors duration-300"
+              className="text-zinc-400 hover:text-white transition-colors duration-300"
             >
               © {new Date().getFullYear()} Aakash Subedi
             </Link>

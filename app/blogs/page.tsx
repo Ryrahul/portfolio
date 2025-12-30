@@ -58,7 +58,7 @@ const cardVariants = {
 
 export default function BlogsPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-black to-zinc-900">
+    <main className="flex min-h-screen flex-col items-center bg-black">
       {/* Header */}
       <header className="w-full max-w-4xl px-4 sm:px-6 pt-8">
         <motion.div
@@ -68,7 +68,7 @@ export default function BlogsPage() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-purple-400 transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors duration-300"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
@@ -89,9 +89,7 @@ export default function BlogsPage() {
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-white"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-400">
-              Blog
-            </span>
+            Blog
           </motion.h1>
           <motion.p
             variants={itemVariants}
@@ -116,25 +114,21 @@ export default function BlogsPage() {
           {blogPosts.map((post, index) => (
             <motion.div key={post.slug} variants={cardVariants}>
               <Link href={`/blogs/${post.slug}`}>
-                <Card className="bg-zinc-900/60 border-zinc-800/50 overflow-hidden backdrop-blur-sm card-hover group cursor-pointer">
-                  <div
-                    className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    aria-hidden="true"
-                  />
-                  <CardContent className="p-6 md:p-8 relative">
+                <Card className="bg-zinc-900/80 border-zinc-800 card-hover group cursor-pointer hover:border-zinc-600 transition-colors duration-300">
+                  <CardContent className="p-6 md:p-8">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div className="flex-1 space-y-3">
-                        <h2 className="text-xl md:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">
+                        <h2 className="text-xl md:text-2xl font-bold text-white group-hover:text-zinc-100 transition-all duration-300">
                           {post.title}
                         </h2>
-                        <p className="text-zinc-300 text-sm md:text-base leading-relaxed">
+                        <p className="text-zinc-400 text-sm md:text-base leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
                           {post.excerpt}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {post.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20"
+                              className="px-3 py-1 text-xs font-medium rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700"
                             >
                               {tag}
                             </span>
@@ -158,7 +152,7 @@ export default function BlogsPage() {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-4 flex items-center text-purple-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mt-4 flex items-center text-zinc-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span>Read more</span>
                       <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
@@ -185,12 +179,12 @@ export default function BlogsPage() {
       </div>
 
       {/* Footer */}
-      <footer className="w-full border-t border-zinc-800/50 mt-auto bg-zinc-900/30 backdrop-blur-sm">
+      <footer className="w-full border-t border-zinc-800 mt-auto bg-zinc-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
           <div className="flex items-center justify-center">
             <Link
               href="/"
-              className="text-zinc-400 hover:text-purple-400 transition-colors duration-300"
+              className="text-zinc-400 hover:text-white transition-colors duration-300"
             >
               © {new Date().getFullYear()} Aakash Subedi
             </Link>
