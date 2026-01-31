@@ -8,6 +8,15 @@ import { Card, CardContent } from "@/components/ui/card";
 // Blog posts data - add new blogs here
 const blogPosts = [
   {
+    slug: "evolution-takes-time",
+    title: "Evolution Takes Time",
+    excerpt:
+      "Exploring the journey of growth and the importance of patience in the face of challenges.",
+    date: "2026-02-01",
+    readTime: "5 min read",
+    tags: ["Growth", "Patience", "Journey"],
+  },
+  {
     slug: "my-2025-session",
     title: "My 2025 Session",
     excerpt:

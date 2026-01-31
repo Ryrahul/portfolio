@@ -24,7 +24,7 @@ const sectionVariants = {
   },
 };
 
-export default function LifeOfAPie() {
+export default function EvolutionTakesTime() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-black">
       {/* Header */}
