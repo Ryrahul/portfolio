@@ -142,11 +142,14 @@ export default function Home() {
               variants={itemVariants}
               className="text-zinc-300 text-base md:text-lg text-center leading-relaxed max-w-3xl mx-auto"
             >
-              Software developer skilled in React, Next.js, Express.js, and
-              PostgreSQL, currently delving into AI integration and application
-              testing. Experienced in building software solutions, incorporating
-              artificial intelligence, and conducting tests to ensure
-              scalability and performance.
+              Code is easy. People and deadlines are hard. I'm the guy who keeps
+              the situation cool when the servers are melting down at 1:00 AM. I
+              believe a team that laughs together, ships together. If there's a
+              problem, it can be fixed. If there's a bug, it can be crushed.
+              <br />
+              <br />
+              I'm looking for missions, not just projects. Let's build something
+              that breaks the status quo.
             </motion.p>
           </motion.section>
 
@@ -159,43 +162,37 @@ export default function Home() {
             className="max-w-4xl mx-auto"
             aria-label="Contact and Education Information"
           >
-            <motion.div variants={cardVariants}>
-              <Card className="bg-zinc-900/80 border-zinc-800 card-hover">
-                <CardContent className="p-8 md:grid md:grid-cols-2 md:gap-8 gap-y-8 text-sm text-zinc-300">
-                  {/* Contact Section */}
-                  <motion.div
-                    variants={itemVariants}
-                    className="flex flex-col items-center text-center gap-3"
-                  >
-                    <h3 className="text-xl font-semibold text-white mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* Contact Card */}
+              <motion.div variants={cardVariants}>
+                <Card className="bg-zinc-900/40 border-zinc-800/60 hover:border-zinc-700/80 transition-all duration-300 h-full">
+                  <CardContent className="p-6 text-sm text-zinc-300 flex flex-col items-center text-center gap-4">
+                    <div className="h-10 w-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center">
+                      <Mail className="w-4 h-4 text-zinc-400" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white">
                       Contact
                     </h3>
-                    <address className="not-italic space-y-2">
-                      <p className="text-zinc-300">Jakkashandra, Kanakapura</p>
-                      <p className="flex items-center justify-center gap-2">
-                        <Mail
-                          className="w-4 h-4 text-zinc-400"
-                          aria-hidden="true"
-                        />
-                        <a
-                          href="mailto:contact.aakash77@gmail.com"
-                          className="hover:text-white transition-colors duration-300 focus:outline-none focus:text-white"
-                        >
-                          contact.aakash77@gmail.com
-                        </a>
-                      </p>
+                    <address className="not-italic space-y-2.5 w-full">
+                      <p className="text-zinc-400">Jakkashandra, Kanakapura</p>
+                      <a
+                        href="mailto:contact.aakash77@gmail.com"
+                        className="block text-zinc-300 hover:text-white transition-colors duration-300"
+                      >
+                        contact.aakash77@gmail.com
+                      </a>
                       <a
                         href="https://www.aksh.work"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 hover:text-white transition-colors duration-300 focus:outline-none focus:text-white justify-center"
+                        className="inline-flex items-center gap-1 text-zinc-300 hover:text-white transition-colors duration-300"
                       >
                         aksh.work
-                        <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                        <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
                       </a>
                     </address>
                     <nav
-                      className="flex gap-3 mt-4"
+                      className="flex gap-3 mt-1"
                       aria-label="Social media links"
                     >
                       <a
@@ -203,7 +200,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Visit GitHub profile"
-                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500 smooth-hover text-zinc-400 hover:text-white transition-colors duration-300"
+                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-800/50 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500 text-zinc-400 hover:text-white transition-all duration-300"
                       >
                         <Github className="w-4 h-4" aria-hidden="true" />
                       </a>
@@ -212,38 +209,51 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Visit LinkedIn profile"
-                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500 smooth-hover text-zinc-400 hover:text-white transition-colors duration-300"
+                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-800/50 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500 text-zinc-400 hover:text-white transition-all duration-300"
                       >
                         <Linkedin className="w-4 h-4" aria-hidden="true" />
                       </a>
                     </nav>
-                  </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-                  {/* Education Section */}
-                  <motion.div
-                    variants={itemVariants}
-                    className="flex flex-col items-center text-center gap-2"
-                  >
-                    <h3 className="text-xl font-semibold text-white mb-4">
+              {/* Education Card */}
+              <motion.div variants={cardVariants}>
+                <Card className="bg-zinc-900/40 border-zinc-800/60 hover:border-zinc-700/80 transition-all duration-300 h-full">
+                  <CardContent className="p-6 text-sm text-zinc-300 flex flex-col items-center text-center gap-4">
+                    <div className="h-10 w-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-semibold text-white">
                       Education
                     </h3>
-                    <p className="font-medium text-zinc-200">
-                      B.Tech Computer Science and Engineering
-                    </p>
-                    <p className="text-zinc-300">
-                      Jain University, Bengaluru, India
-                    </p>
-                    <p className="text-zinc-400">
-                      Specialisation in Artificial Intelligence
-                    </p>
-                    <time className="text-zinc-400" dateTime="2022-09/2026-04">
-                      Sep 2022 – Apr 2026
-                    </time>
-                    <p className="text-white font-medium">Current CGPA: 8.7</p>
-                  </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                    <div className="space-y-1.5">
+                      <p className="font-medium text-zinc-200">
+                        B.Tech Computer Science and Engineering
+                      </p>
+                      <p className="text-zinc-400">
+                        Jain University, Bengaluru, India
+                      </p>
+                      <p className="text-zinc-500 text-xs">
+                        Specialisation in Artificial Intelligence
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3 mt-1">
+                      <span className="text-xs text-zinc-500 bg-zinc-800/50 px-3 py-1.5 rounded-full">
+                        <time dateTime="2022-09/2026-04">Sep 2022 – Apr 2026</time>
+                      </span>
+                      <span className="text-xs font-semibold text-white bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">
+                        CGPA: 8.7
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
           </motion.section>
 
           {/* GitHub Contributions */}
@@ -299,45 +309,43 @@ export default function Home() {
               <div className="section-divider" aria-hidden="true"></div>
             </motion.div>
 
-            <motion.div variants={cardVariants}>
-              <Card className="bg-zinc-900/80 border-zinc-800 card-hover">
-                <CardContent className="p-8">
-                  <div className="space-y-8">
-                    <ExperienceItem
-                      title="Full Stack Engineer"
-                      company="Nihin Media"
-                      period="Jan 2026-Present"
-                      details={[
-                        "Integrating generative AI capabilities into the core product to enhance user experience.",
-                        "Maintaining and improving the product infrastructure for reliability and scalability.",
-                      ]}
-                      index={0}
-                    />
+            <motion.div
+              variants={cardVariants}
+              className="max-w-3xl mx-auto space-y-6"
+            >
+              <ExperienceItem
+                title="Full Stack Engineer"
+                company="Nihin Media"
+                period="Jan 2026 - Present"
+                details={[
+                  "Integrating generative AI capabilities into the core product to enhance user experience.",
+                  "Maintaining and improving the product infrastructure for reliability and scalability.",
+                ]}
+                index={0}
+                isLatest
+              />
 
-                    <ExperienceItem
-                      title="Software Developer Intern"
-                      company="Ainocular"
-                      period="July 2025-Dec 2025"
-                      details={[
-                        "Developed and tested software solutions with a focus on scalability and performance.",
-                        "Incorporated artificial intelligence into applications to enhance functionality.",
-                      ]}
-                      index={1}
-                    />
+              <ExperienceItem
+                title="Software Developer Intern"
+                company="Ainocular"
+                period="July 2025 - Dec 2025"
+                details={[
+                  "Developed and tested software solutions with a focus on scalability and performance.",
+                  "Incorporated artificial intelligence into applications to enhance functionality.",
+                ]}
+                index={1}
+              />
 
-                    <ExperienceItem
-                      title="Software Developer Intern"
-                      company="Lookaround.in"
-                      period="Jan 2025-June 2025"
-                      details={[
-                        "Built company's SaaS backend from scratch using Express.js and PostgreSQL.",
-                        "Refactored existing codebase to improve performance and maintainability.",
-                      ]}
-                      index={2}
-                    />
-                  </div>
-                </CardContent>
-              </Card>
+              <ExperienceItem
+                title="Software Developer Intern"
+                company="Lookaround.in"
+                period="Jan 2025 - June 2025"
+                details={[
+                  "Built company's SaaS backend from scratch using Express.js and PostgreSQL.",
+                  "Refactored existing codebase to improve performance and maintainability.",
+                ]}
+                index={2}
+              />
             </motion.div>
           </motion.section>
 

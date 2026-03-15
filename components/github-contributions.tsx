@@ -32,84 +32,55 @@ function GithubCalender() {
       <div className="w-full overflow-x-auto flex justify-center">
         <div className="flex justify-center items-center">
           <style jsx global>{`
-            /* Override the react-github-calendar styles for responsiveness */
-            .react-calendar-graph {
-              margin: 0 auto;
-              display: block;
+            /* Month labels — uses fill: currentColor, so set color */
+            .react-activity-calendar__legend-month {
+              color: #e4e4e7 !important; /* zinc-200 */
             }
-
-            .react-calendar-graph .ContributionCalendar-grid {
-              overflow-x: visible;
-            }
-
-            /* FIX: Make all text visible with proper colors */
-            .react-calendar-graph text {
-              fill: #a1a1aa !important; /* zinc-400 */
-              font-size: 12px;
-            }
-
-            /* Month labels (Apr, May, Jun, etc.) */
-            .react-calendar-graph text.ContributionCalendar-label {
-              fill: #a78bfa !important; /* purple-400 */
+            .react-activity-calendar__legend-month text {
+              fill: #e4e4e7 !important; /* zinc-200 */
               font-weight: 500;
             }
 
-            /* Day labels (Mon, Wed, Fri) */
-            .react-calendar-graph text {
-              fill: #71717a !important; /* zinc-500 */
+            /* Weekday labels */
+            .react-activity-calendar__legend-weekday {
+              color: #a1a1aa !important; /* zinc-400 */
+            }
+            .react-activity-calendar__legend-weekday text {
+              fill: #a1a1aa !important; /* zinc-400 */
             }
 
-            /* Contribution count text */
-            .react-calendar-graph .contrib-legend,
-            .react-calendar-graph footer,
-            .react-calendar-graph span,
-            .react-calendar-graph div {
+            /* Footer text (contribution count, Less/More) */
+            .react-activity-calendar__footer {
+              color: #a1a1aa !important; /* zinc-400 */
+            }
+            .react-activity-calendar__count {
+              color: #d4d4d8 !important; /* zinc-300 */
+            }
+            .react-activity-calendar__legend-colors {
               color: #a1a1aa !important; /* zinc-400 */
             }
 
-            /* Links (Less, More, contribution count) */
-            .react-calendar-graph a {
-              color: #a78bfa !important; /* purple-400 */
-              text-decoration: underline;
+            /* Hide scrollbar but keep functionality */
+            .react-activity-calendar__scroll-container::-webkit-scrollbar {
+              display: none;
+            }
+            .react-activity-calendar__scroll-container {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
             }
 
-            .react-calendar-graph a:hover {
-              color: #c4b5fd !important; /* purple-300 */
-            }
-
-            /* Ensure the calendar fits on mobile */
+            /* Mobile scaling */
             @media (max-width: 640px) {
-              .react-calendar-graph {
-                font-size: 10px;
+              .react-activity-calendar {
                 transform: scale(0.8);
                 transform-origin: center center;
               }
             }
-
-            /* Tablet view adjustments */
             @media (max-width: 768px) and (min-width: 641px) {
-              .react-calendar-graph {
+              .react-activity-calendar {
                 transform: scale(0.9);
                 transform-origin: center center;
               }
-            }
-
-            /* Desktop view - ensure centering */
-            @media (min-width: 769px) {
-              .react-calendar-graph {
-                transform-origin: center center;
-              }
-            }
-
-            /* Hide scrollbar but keep functionality */
-            .react-calendar-graph
-              .ContributionCalendar-grid::-webkit-scrollbar {
-              display: none;
-            }
-
-            .react-calendar-graph .ContributionCalendar-grid {
-              -ms-overflow-style: none;
-              scrollbar-width: none;
             }
           `}</style>
           <GitHubCalendar
