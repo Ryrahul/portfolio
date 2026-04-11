@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { profile, experience, techStack, projects, education, hobbies } from "@/lib/data";
 import GitHubContributions from "@/components/github-contributions";
+import TypingArea from "@/components/typing-area";
 
 export default function Home() {
   return (
@@ -98,10 +99,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cursor */}
-      <div className="mt-6">
-        <span className="cursor-blink" />
-      </div>
+      {/* Typing Area */}
+      <section className="mt-6">
+        <TypingArea />
+      </section>
 
       {/* Footer */}
       <footer className="mt-12 pt-4 border-t border-zinc-200 text-sm text-zinc-400">
