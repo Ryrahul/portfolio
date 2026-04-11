@@ -1,643 +1,117 @@
-"use client";
-
-import React from "react";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, Github, Linkedin, Mail, Heart } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import ProjectCard from "@/components/project-card";
-import ExperienceItem from "@/components/experience-item";
-import SkillBadge from "@/components/skill-badge";
-import { Button } from "@/components/ui/button";
-import HeroSection from "@/components/hero-section";
-import { Card, CardContent } from "@/components/ui/card";
+import { profile, experience, techStack, projects, education, hobbies } from "@/lib/data";
 import GitHubContributions from "@/components/github-contributions";
 
 export default function Home() {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-
-  // Animation variants for sections
-  const sectionVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99],
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.95,
-      y: 30,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
-      },
-    },
-  };
-
-  const frontendSkills = [
-    "React.js",
-    "Next.js",
-    "Jotai",
-    "Tanstack Query",
-    "Three.js",
-    "Framer Motion",
-    "Tailwind",
-  ];
-  const backendSkills = [
-    "Express.js",
-    "Nest.js",
-    "PostgreSQL",
-    "Websockets",
-    "WRTC",
-    "Redis",
-    "Langchain",
-    "FastAPI",
-  ];
-  const tools = ["Git", "Vim", "Docker", "AWS", "Renderer", "Puppeteer"];
-  const languages = ["Python", "TypeScript", "C++", "Java", "Go"];
-
-  const currentYear = new Date().getFullYear();
-
   return (
-    <>
-      {/* Skip to main content link for accessibility */}
-      <a href="#main-content" className="skip-to-main">
-        Skip to main content
-      </a>
-
-      <main
-        id="main-content"
-        className="flex min-h-screen flex-col items-center bg-black"
-        role="main"
-      >
-        {/* Hero Section */}
-        <header ref={targetRef} className="w-full">
-          <HeroSection />
-        </header>
-
-        {/* Content Container with consistent width and centering */}
-        <div className="w-full max-w-4xl px-4 sm:px-6 py-16 mx-auto space-y-20">
-          {/* About Me Section */}
-          <motion.section
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
-            id="about"
-            aria-labelledby="about-heading"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="text-center space-y-4"
-            >
-              <h2
-                id="about-heading"
-                className="text-3xl md:text-4xl font-bold text-white"
-              >
-                About Me
-              </h2>
-              <div className="section-divider" aria-hidden="true"></div>
-            </motion.div>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-zinc-300 text-base md:text-lg text-center leading-relaxed max-w-3xl mx-auto"
-            >
-              Code is easy. People and deadlines are hard. I'm the guy who keeps
-              the situation cool when the servers are melting down at 1:00 AM. I
-              believe a team that laughs together, ships together. If there's a
-              problem, it can be fixed. If there's a bug, it can be crushed.
-              <br />
-              <br />
-              I'm looking for missions, not just projects. Let's build something
-              that breaks the status quo.
-            </motion.p>
-          </motion.section>
-
-          {/* Contact and Education Cards */}
-          <motion.section
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="max-w-4xl mx-auto"
-            aria-label="Contact and Education Information"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Contact Card */}
-              <motion.div variants={cardVariants}>
-                <Card className="bg-zinc-900/40 border-zinc-800/60 hover:border-zinc-700/80 transition-all duration-300 h-full">
-                  <CardContent className="p-6 text-sm text-zinc-300 flex flex-col items-center text-center gap-4">
-                    <div className="h-10 w-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center">
-                      <Mail className="w-4 h-4 text-zinc-400" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-white">
-                      Contact
-                    </h3>
-                    <address className="not-italic space-y-2.5 w-full">
-                      <p className="text-zinc-400">Jakkashandra, Kanakapura</p>
-                      <a
-                        href="mailto:contact.aakash77@gmail.com"
-                        className="block text-zinc-300 hover:text-white transition-colors duration-300"
-                      >
-                        contact.aakash77@gmail.com
-                      </a>
-                      <a
-                        href="https://www.aksh.work"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-zinc-300 hover:text-white transition-colors duration-300"
-                      >
-                        aksh.work
-                        <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      </a>
-                    </address>
-                    <nav
-                      className="flex gap-3 mt-1"
-                      aria-label="Social media links"
-                    >
-                      <a
-                        href="https://github.com/subediaakash"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Visit GitHub profile"
-                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-800/50 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500 text-zinc-400 hover:text-white transition-all duration-300"
-                      >
-                        <Github className="w-4 h-4" aria-hidden="true" />
-                      </a>
-                      <a
-                        href="https://www.linkedin.com/in/aakash-subedi-a9986625a/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Visit LinkedIn profile"
-                        className="rounded-full h-9 w-9 flex items-center justify-center bg-zinc-800/50 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500 text-zinc-400 hover:text-white transition-all duration-300"
-                      >
-                        <Linkedin className="w-4 h-4" aria-hidden="true" />
-                      </a>
-                    </nav>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* Education Card */}
-              <motion.div variants={cardVariants}>
-                <Card className="bg-zinc-900/40 border-zinc-800/60 hover:border-zinc-700/80 transition-all duration-300 h-full">
-                  <CardContent className="p-6 text-sm text-zinc-300 flex flex-col items-center text-center gap-4">
-                    <div className="h-10 w-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                        <path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5" />
-                      </svg>
-                    </div>
-                    <h3 className="text-lg font-semibold text-white">
-                      Education
-                    </h3>
-                    <div className="space-y-1.5">
-                      <p className="font-medium text-zinc-200">
-                        B.Tech Computer Science and Engineering
-                      </p>
-                      <p className="text-zinc-400">
-                        Jain University, Bengaluru, India
-                      </p>
-                      <p className="text-zinc-500 text-xs">
-                        Specialisation in Artificial Intelligence
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-3 mt-1">
-                      <span className="text-xs text-zinc-500 bg-zinc-800/50 px-3 py-1.5 rounded-full">
-                        <time dateTime="2022-09/2026-04">Sep 2022 – Apr 2026</time>
-                      </span>
-                      <span className="text-xs font-semibold text-white bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">
-                        CGPA: 8.7
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </div>
-          </motion.section>
-
-          {/* GitHub Contributions */}
-          <motion.section
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8 w-full"
-            aria-labelledby="github-heading"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="text-center space-y-4"
-            >
-              <h2
-                id="github-heading"
-                className="text-3xl md:text-4xl font-bold text-white"
-              >
-                GitHub Contributions
-              </h2>
-              <div className="section-divider" aria-hidden="true"></div>
-            </motion.div>
-            <motion.div
-              variants={itemVariants}
-              className="w-full flex justify-center"
-            >
-              <div className="w-full max-w-4xl px-2">
-                <GitHubContributions />
-              </div>
-            </motion.div>
-          </motion.section>
-
-          {/* Experience Section */}
-          <motion.section
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
-            aria-labelledby="experience-heading"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="text-center space-y-4"
-            >
-              <h2
-                id="experience-heading"
-                className="text-3xl md:text-4xl font-bold text-white"
-              >
-                Experience
-              </h2>
-              <div className="section-divider" aria-hidden="true"></div>
-            </motion.div>
-
-            <motion.div
-              variants={cardVariants}
-              className="max-w-3xl mx-auto space-y-6"
-            >
-              <ExperienceItem
-                title="Full Stack Engineer"
-                company="Nihin Media"
-                period="Jan 2026 - Present"
-                details={[
-                  "Integrating generative AI capabilities into the core product to enhance user experience.",
-                  "Maintaining and improving the product infrastructure for reliability and scalability.",
-                ]}
-                index={0}
-                isLatest
-              />
-
-              <ExperienceItem
-                title="Software Developer Intern"
-                company="Ainocular"
-                period="July 2025 - Dec 2025"
-                details={[
-                  "Developed and tested software solutions with a focus on scalability and performance.",
-                  "Incorporated artificial intelligence into applications to enhance functionality.",
-                ]}
-                index={1}
-              />
-
-              <ExperienceItem
-                title="Software Developer Intern"
-                company="Lookaround.in"
-                period="Jan 2025 - June 2025"
-                details={[
-                  "Built company's SaaS backend from scratch using Express.js and PostgreSQL.",
-                  "Refactored existing codebase to improve performance and maintainability.",
-                ]}
-                index={2}
-              />
-            </motion.div>
-          </motion.section>
-
-          {/* Projects Section */}
-          <motion.section
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
-            id="projects"
-            aria-labelledby="projects-heading"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="text-center space-y-4"
-            >
-              <h2
-                id="projects-heading"
-                className="text-3xl md:text-4xl font-bold text-white"
-              >
-                Featured Projects
-              </h2>
-              <div className="section-divider" aria-hidden="true"></div>
-            </motion.div>
-
-            <div
-              className="grid gap-6 md:grid-cols-2 auto-rows-fr"
-              role="list"
-              aria-label="Project list"
-            >
-              <ProjectCard
-                title="Google Docs Clone"
-                description="Real-time collaborative text editor with user permissions, file sharing, and rich text formatting. Tested with Jest and Cypress."
-                index={0}
-                repoUrl="https://github.com/subediaakash/Google-Docs-Like-Text-Editor"
-              />
-
-              <ProjectCard
-                title="Zomato MCP"
-                description="AI agent that orders, lists, and manages food items. Implements Zomato's MCP functionality using TypeScript."
-                index={1}
-                repoUrl="https://github.com/subediaakash/zomato-mcp"
-              />
-
-              <ProjectCard
-                title="Splitwise Clone"
-                description="Bill splitting app built with Next.js. Features include expense tracking, payment history, and settlement system."
-                index={2}
-                repoUrl="https://github.com/subediaakash/splitwise-clone"
-              />
-
-              <ProjectCard
-                title="Study Sync"
-                description="Collaborative study platform with group formation, goal setting, and Pomodoro-based sessions. Praised by angel investors."
-                index={3}
-                repoUrl="https://github.com/subediaakash/Study-Sync"
-              />
-            </div>
-          </motion.section>
-
-          {/* Skills Section */}
-          <motion.section
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
-            aria-labelledby="skills-heading"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="text-center space-y-4"
-            >
-              <h2
-                id="skills-heading"
-                className="text-3xl md:text-4xl font-bold text-white"
-              >
-                Skills & Technologies
-              </h2>
-              <div className="section-divider" aria-hidden="true"></div>
-            </motion.div>
-
-            <motion.div variants={cardVariants}>
-              <Card className="bg-zinc-900/80 border-zinc-800 card-hover">
-                <CardContent className="p-8">
-                  <div className="space-y-10">
-                    <motion.div variants={itemVariants}>
-                      <h3 className="text-xl font-semibold mb-6 text-white text-center">
-                        Frontend
-                      </h3>
-                      <ul
-                        className="flex flex-wrap gap-3 justify-center"
-                        role="list"
-                        aria-label="Frontend skills"
-                      >
-                        {frontendSkills.map((skill, index) => (
-                          <li key={skill}>
-                            <SkillBadge
-                              skill={skill}
-                              index={index}
-                              category="frontend"
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-
-                    <motion.div variants={itemVariants}>
-                      <h3 className="text-xl font-semibold mb-6 text-white text-center">
-                        Backend
-                      </h3>
-                      <ul
-                        className="flex flex-wrap gap-3 justify-center"
-                        role="list"
-                        aria-label="Backend skills"
-                      >
-                        {backendSkills.map((skill, index) => (
-                          <li key={skill}>
-                            <SkillBadge
-                              skill={skill}
-                              index={index}
-                              category="backend"
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-
-                    <motion.div variants={itemVariants}>
-                      <h3 className="text-xl font-semibold mb-6 text-white text-center">
-                        Tools
-                      </h3>
-                      <ul
-                        className="flex flex-wrap gap-3 justify-center"
-                        role="list"
-                        aria-label="Development tools"
-                      >
-                        {tools.map((tool, index) => (
-                          <li key={tool}>
-                            <SkillBadge
-                              skill={tool}
-                              index={index}
-                              category="tools"
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-
-                    <motion.div variants={itemVariants}>
-                      <h3 className="text-xl font-semibold mb-6 text-white text-center">
-                        Languages
-                      </h3>
-                      <ul
-                        className="flex flex-wrap gap-3 justify-center"
-                        role="list"
-                        aria-label="Programming languages"
-                      >
-                        {languages.map((language, index) => (
-                          <li key={language}>
-                            <SkillBadge
-                              skill={language}
-                              index={index}
-                              category="languages"
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.section>
-
-          {/* Blog Section */}
-          <motion.section
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
-            aria-labelledby="blog-heading"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="text-center space-y-4"
-            >
-              <h2
-                id="blog-heading"
-                className="text-3xl md:text-4xl font-bold text-white"
-              >
-                Blog
-              </h2>
-              <div className="section-divider" aria-hidden="true"></div>
-              <p className="text-zinc-400 max-w-2xl mx-auto">
-                Thoughts, learnings, and stories from my journey.
-              </p>
-            </motion.div>
-
-            <motion.div variants={cardVariants} className="flex justify-center">
-              <Link
-                href="/blogs"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 transition-all duration-300"
-              >
-                <span>Read my blog posts</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-              </Link>
-            </motion.div>
-          </motion.section>
-
-          {/* Enhanced Contact Button */}
-          <motion.section
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="flex justify-center pt-8"
-            aria-label="Contact call to action"
-          >
-            <motion.div
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="mailto:contact.aakash77@gmail.com"
-                className="inline-flex items-center justify-center bg-white text-black hover:bg-zinc-200 px-10 py-4 rounded-full text-lg font-medium smooth-hover shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Get In Touch
-              </a>
-            </motion.div>
-          </motion.section>
-        </div>
-
-        {/* Footer */}
-        <footer className="w-full border-t border-zinc-800 mt-20 bg-zinc-950">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              {/* Logo/Name */}
-              <div className="text-center md:text-left">
-                <p className="text-xl font-bold text-white">Aakash Subedi</p>
-                <p className="text-zinc-400 text-sm mt-1">
-                  Full Stack Developer
-                </p>
-              </div>
-
-              {/* Social Links */}
-              <nav className="flex gap-4" aria-label="Footer social links">
-                <a
-                  href="https://github.com/subediaakash"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="text-zinc-400 hover:text-white transition-colors duration-300"
-                >
-                  <Github className="w-5 h-5" aria-hidden="true" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/aakash-subedi-a9986625a/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="text-zinc-400 hover:text-white transition-colors duration-300"
-                >
-                  <Linkedin className="w-5 h-5" aria-hidden="true" />
-                </a>
-                <a
-                  href="mailto:contact.aakash77@gmail.com"
-                  aria-label="Email"
-                  className="text-zinc-400 hover:text-white transition-colors duration-300"
-                >
-                  <Mail className="w-5 h-5" aria-hidden="true" />
-                </a>
-              </nav>
-
-              {/* Copyright */}
-              <div className="text-center md:text-right">
-                <p className="text-zinc-500 text-sm flex items-center gap-1 justify-center md:justify-end">
-                  © {currentYear} Made with
-                  <Heart
-                    className="w-4 h-4 text-red-500 fill-red-500"
-                    aria-hidden="true"
-                  />
-                  <span className="sr-only">love</span>
-                </p>
-              </div>
-            </div>
+    <main className="max-w-2xl mx-auto px-6 py-12 sm:py-16">
+      {/* Header: Image + Identity */}
+      <header className="flex flex-col sm:flex-row sm:items-start gap-6 mb-10">
+        <Image
+          src="/me.jpg"
+          alt={profile.name}
+          width={100}
+          height={100}
+          className="rounded-full grayscale hover:grayscale-0 transition-all duration-300"
+          priority
+        />
+        <div>
+          <h1 className="text-base font-medium">{profile.name}</h1>
+          <p>Profession : {profile.profession}</p>
+          <p>{profile.location}</p>
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            <a href={profile.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a href={profile.twitter} target="_blank" rel="noopener noreferrer">
+              Twitter
+            </a>
+            <a href={`mailto:${profile.email}`}>Email</a>
+            <Link href="/blogs">Blog</Link>
           </div>
-        </footer>
-      </main>
-    </>
+        </div>
+      </header>
+
+      {/* Experience */}
+      <section className="mb-10">
+        <h2 className="font-medium mb-3">Experience :</h2>
+        {experience.map((exp) => (
+          <div key={exp.company} className="mb-2">
+            <p>
+              - {exp.title} ({exp.company})
+            </p>
+            <p className="ml-4 text-zinc-500">{exp.period}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Tech Stack */}
+      <section className="mb-10">
+        <p>
+          <span className="font-medium">Tech Stack : </span>
+          {techStack.join(", ")} and so on
+        </p>
+      </section>
+
+      {/* Projects */}
+      <section className="mb-10">
+        <h2 className="font-medium mb-3">Projects :</h2>
+        {projects.map((project) => (
+          <p key={project.name} className="mb-1 ml-2">
+            -{" "}
+            <a href={project.url} target="_blank" rel="noopener noreferrer">
+              {project.name}
+            </a>{" "}
+            : {project.description}
+          </p>
+        ))}
+        <p className="mt-2 ml-2 text-zinc-500">
+          Note : Every saturday/sunday i build a lot of projects
+        </p>
+      </section>
+
+      {/* Education */}
+      <section className="mb-10">
+        <p>
+          <span className="font-medium">Education : </span>
+          {education.degree} ({education.period})
+        </p>
+      </section>
+
+      {/* Hobbies */}
+      <section className="mb-10">
+        <p>
+          <span className="font-medium">Hobbies : </span>
+          {hobbies.join(" , ")}
+        </p>
+      </section>
+
+      {/* GitHub Contributions */}
+      <section className="mb-10">
+        <h2 className="font-medium mb-4">GitHub Contributions :</h2>
+        <div className="overflow-x-auto">
+          <GitHubContributions />
+        </div>
+      </section>
+
+      {/* Cursor */}
+      <div className="mt-6">
+        <span className="cursor-blink" />
+      </div>
+
+      {/* Footer */}
+      <footer className="mt-12 pt-4 border-t border-zinc-200 text-sm text-zinc-400">
+        <p>
+          inspired from{" "}
+          <a href="https://typehere.app" target="_blank" rel="noopener noreferrer">
+            typehere.app
+          </a>
+        </p>
+      </footer>
+    </main>
   );
 }

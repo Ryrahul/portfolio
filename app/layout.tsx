@@ -1,27 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Fira_Code } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// Configure distinctive fonts - Space Grotesk for headings, clean geometric feel
-const spaceGrotesk = Space_Grotesk({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-space-grotesk",
-  weight: ["400", "500", "600", "700"],
-});
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-fira-code",
+  variable: "--font-mono",
   weight: ["400", "500"],
 });
 
 const siteConfig = {
   name: "Aakash Subedi",
-  title: "Aakash Subedi - Full Stack Developer | React, Next.js, Node.js",
+  title: "Aakash Subedi - Software Engineer",
   description:
-    "I'm Aakash Subedi, a Full Stack Developer specializing in React, Next.js, Express.js, and PostgreSQL. Explore my projects, experience, and skills in modern web development and AI integration.",
+    "I'm Aakash Subedi, a Software Engineer specializing in TypeScript, Python, Go, AWS, and PostgreSQL. Explore my projects, experience, and blog.",
   url: "https://www.aksh.work",
   ogImage: "/me.jpg",
   twitterHandle: "@void_aakash",
@@ -36,10 +28,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
-    { media: "(prefers-color-scheme: light)", color: "#18181b" },
-  ],
+  themeColor: "#ffffff",
 };
 
 export const metadata: Metadata = {
@@ -52,23 +41,15 @@ export const metadata: Metadata = {
   keywords: [
     "Aakash Subedi",
     "subediaakash",
-    "void_aakash",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
-    "TypeScript",
-    "JavaScript",
-    "PostgreSQL",
-    "Web Developer",
     "Software Engineer",
+    "TypeScript",
+    "Python",
+    "Go",
+    "AWS",
+    "PostgreSQL",
+    "Full Stack Developer",
     "Bengaluru",
     "India",
-    "Frontend Developer",
-    "Backend Developer",
-    "AI Integration",
-    "Express.js",
-    "Portfolio",
     "aksh.work",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
@@ -110,7 +91,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} - Full Stack Developer Portfolio`,
+        alt: `${siteConfig.name} - Software Engineer`,
       },
     ],
   },
@@ -126,16 +107,8 @@ export const metadata: Metadata = {
     canonical: siteConfig.url,
   },
   category: "technology",
-  verification: {
-    // Add your Google Search Console verification code here
-    // google: "your-google-verification-code",
-  },
-  other: {
-    "google-site-verification": "", // Add your verification code
-  },
 };
 
-// Enhanced JSON-LD Structured Data with multiple schemas
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -144,17 +117,12 @@ const personSchema = {
   givenName: "Aakash",
   familyName: "Subedi",
   url: siteConfig.url,
-  image: {
-    "@type": "ImageObject",
-    url: `${siteConfig.url}${siteConfig.ogImage}`,
-    width: 400,
-    height: 400,
-  },
+  image: `${siteConfig.url}${siteConfig.ogImage}`,
   email: `mailto:${siteConfig.email}`,
-  jobTitle: "Full Stack Developer",
+  jobTitle: "Software Engineer",
   worksFor: {
     "@type": "Organization",
-    name: "Ainocular",
+    name: "Nihin Media K.K.",
   },
   description: siteConfig.description,
   address: {
@@ -163,80 +131,16 @@ const personSchema = {
     addressRegion: "Karnataka",
     addressCountry: "IN",
   },
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "Jain University",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Bengaluru",
-      addressCountry: "IN",
-    },
-  },
   sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.twitter],
-  knowsAbout: [
-    "React.js",
-    "Next.js",
-    "Node.js",
-    "Express.js",
-    "PostgreSQL",
-    "TypeScript",
-    "JavaScript",
-    "Python",
-    "Docker",
-    "AWS",
-    "AI Integration",
-    "Web Development",
-    "Full Stack Development",
-  ],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": `${siteConfig.url}/#website`,
   url: siteConfig.url,
   name: siteConfig.name,
   description: siteConfig.description,
-  publisher: {
-    "@id": `${siteConfig.url}/#person`,
-  },
-  inLanguage: "en-US",
 };
-
-const profilePageSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": `${siteConfig.url}/#profilepage`,
-  url: siteConfig.url,
-  name: `${siteConfig.name} - Portfolio`,
-  description: siteConfig.description,
-  mainEntity: {
-    "@id": `${siteConfig.url}/#person`,
-  },
-  dateCreated: "2024-01-01",
-  dateModified: new Date().toISOString().split("T")[0],
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: siteConfig.url,
-    },
-  ],
-};
-
-// Combine all schemas
-const jsonLdSchemas = [
-  personSchema,
-  websiteSchema,
-  profilePageSchema,
-  breadcrumbSchema,
-];
 
 export default function RootLayout({
   children,
@@ -244,32 +148,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      style={{
-        scrollBehavior: "smooth",
-        backgroundColor: "#09090b",
-      }}
-      className={`${spaceGrotesk.variable} ${firaCode.variable}`}
-    >
+    <html lang="en" className={jetbrainsMono.variable}>
       <head>
-        {/* Multiple JSON-LD schemas for rich search results */}
-        {jsonLdSchemas.map((schema, index) => (
-          <script
-            key={index}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
-        ))}
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
         />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
