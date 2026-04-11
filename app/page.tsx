@@ -13,7 +13,7 @@ export default function Home() {
           alt={profile.name}
           width={100}
           height={100}
-          className="rounded-full grayscale hover:grayscale-0 transition-all duration-300"
+          className="rounded-full"
           priority
         />
         <div>
