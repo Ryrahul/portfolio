@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import NinjaCursor from "@/components/ninja-cursor";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -163,7 +164,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <NinjaCursor />
+        {children}
+      </body>
     </html>
   );
 }
