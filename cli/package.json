@@ -1,0 +1,21 @@
+{
+  "name": "devaakash",
+  "version": "1.0.0",
+  "description": "Aakash Subedi's portfolio in your terminal",
+  "bin": {
+    "devaakash": "./index.js"
+  },
+  "keywords": [
+    "portfolio",
+    "cli",
+    "business-card",
+    "aakash-subedi"
+  ],
+  "author": "Aakash Subedi <contact.aakash77@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "boxen": "^8.0.1",
+    "chalk": "^5.4.1"
+  },
+  "type": "module"
+}
