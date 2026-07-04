@@ -3,13 +3,13 @@
 import { useEffect, useRef } from "react";
 
 const COLORS = [
-  "#4ade80", // bright green
-  "#22c55e", // green
-  "#16a34a", // deep green
-  "#86efac", // pale mint
-  "#6ee7b7", // emerald-mint
-  "#34d399", // emerald
-  "#a7f3d0", // very pale green
+  "#60a5fa", // blue-400
+  "#3b82f6", // blue-500
+  "#2563eb", // blue-600
+  "#93c5fd", // blue-300
+  "#7dd3fc", // sky-300
+  "#38bdf8", // sky-400
+  "#a5b4fc", // indigo-300
   "#ffffff", // bright star
 ];
 
@@ -95,12 +95,12 @@ export default function SlashCursor() {
         ctx.globalAlpha = s.alpha;
 
         if (s.isBright) {
-          ctx.shadowColor = "#4ade80";
+          ctx.shadowColor = "#60a5fa";
           ctx.shadowBlur = 10;
           ctx.fillStyle = s.color;
           drawStar4(ctx, s.x, s.y, s.size);
         } else {
-          ctx.shadowColor = "#22c55e";
+          ctx.shadowColor = "#3b82f6";
           ctx.shadowBlur = 5;
           ctx.fillStyle = s.color;
           ctx.beginPath();
@@ -116,14 +116,14 @@ export default function SlashCursor() {
       ctx.save();
       // Outer halo
       const grad = ctx.createRadialGradient(x, y, 0, x, y, 14);
-      grad.addColorStop(0, "rgba(74,222,128,0.25)");
-      grad.addColorStop(1, "rgba(74,222,128,0)");
+      grad.addColorStop(0, "rgba(96,165,250,0.25)");
+      grad.addColorStop(1, "rgba(96,165,250,0)");
       ctx.fillStyle = grad;
       ctx.beginPath();
       ctx.arc(x, y, 14, 0, Math.PI * 2);
       ctx.fill();
       // Core dot
-      ctx.shadowColor = "#4ade80";
+      ctx.shadowColor = "#60a5fa";
       ctx.shadowBlur = 10;
       ctx.fillStyle = "#ffffff";
       ctx.beginPath();

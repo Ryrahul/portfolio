@@ -7,7 +7,7 @@ export default function TypingArea() {
 
   useEffect(() => {
     if (ref.current) {
-      ref.current.focus();
+      ref.current.focus({ preventScroll: true });
     }
   }, []);
 
