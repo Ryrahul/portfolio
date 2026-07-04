@@ -15,16 +15,34 @@ export const experience = [
     title: "Software Engineer",
     company: "Nihin Media K.K.",
     period: "January 2026 - Present",
+    companyInfo: {
+      description: "Japanese media & technology company building digital products.",
+      location: "Tokyo, Japan",
+      industry: "Media & Technology",
+      linkedinUrl: "https://www.linkedin.com/company/nihin-media-k-k/",
+    },
   },
   {
     title: "SDE Intern",
     company: "Ainocular",
     period: "July 2025 - December 2025",
+    companyInfo: {
+      description: "AI-powered platform for intelligent business insights.",
+      location: "India",
+      industry: "Artificial Intelligence",
+      linkedinUrl: "https://www.linkedin.com/company/ainocular/",
+    },
   },
   {
     title: "SDE Intern",
     company: "Lookaround.in",
     period: "Jan 2025 - June 2025",
+    companyInfo: {
+      description: "Location discovery platform connecting people to local experiences.",
+      location: "India",
+      industry: "Consumer Tech",
+      linkedinUrl: "https://www.linkedin.com/company/lookaround-in/",
+    },
   },
 ];
 
@@ -52,12 +70,12 @@ export const projects = [
   {
     name: "Express Backend Agent",
     description: "Agent that writes end to end backend in express",
-    url: "https://github.com/subediaakash",
+    url: "https://github.com/subediaakash/agent-that-writes-backend",
   },
   {
     name: "CLI Music Player",
-    description: "Cli based music player, that scrapes musics via youtube",
-    url: "https://github.com/subediaakash",
+    description: "Cli based music player, that scrapes musics via youtube.",
+    url: "https://github.com/",
   },
   {
     name: "Google Docs Clone",

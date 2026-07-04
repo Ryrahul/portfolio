@@ -3,6 +3,7 @@ import Link from "next/link";
 import { profile, experience, techStack, projects, education, hobbies } from "@/lib/data";
 import GitHubContributions from "@/components/github-contributions";
 import TypingArea from "@/components/typing-area";
+import CompanyHoverCard from "@/components/company-hover-card";
 
 export default function Home() {
   return (
@@ -43,7 +44,13 @@ export default function Home() {
         {experience.map((exp) => (
           <div key={exp.company} className="mb-2">
             <p>
-              - {exp.title} ({exp.company})
+              - {exp.title} (
+              {exp.companyInfo ? (
+                <CompanyHoverCard company={exp.company} companyInfo={exp.companyInfo} />
+              ) : (
+                exp.company
+              )}
+              )
             </p>
             <p className="ml-4 text-zinc-500">{exp.period}</p>
           </div>
