@@ -28,22 +28,22 @@ export default function HeroSection() {
 
   const socialLinks = [
     {
-      href: "https://github.com/subediaakash",
+      href: "https://github.com/Ryrahul",
       icon: Github,
       label: "GitHub",
     },
     {
-      href: "https://www.linkedin.com/in/aakash-subedi-a9986625a/",
+      href: "https://www.linkedin.com/in/rahul-raj-yadav-03b06b258/",
       icon: Linkedin,
       label: "LinkedIn",
     },
     {
-      href: "https://x.com/void_aakash",
+      href: "https://x.com/ry_rahull",
       icon: XIcon,
       label: "X",
     },
     {
-      href: "mailto:contact.aakash77@gmail.com",
+      href: "mailto:rahul.yadav@idefforts.com",
       icon: Mail,
       label: "Email",
     },
@@ -75,8 +75,8 @@ export default function HeroSection() {
             {/* Image container */}
             <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-zinc-700">
               <Image
-                src="/me.jpg"
-                alt="Aakash Subedi - Full Stack Developer"
+                src="/me.png"
+                alt="Rahul Raj Yadav - Tech Lead & Backend Engineer"
                 fill
                 className="object-cover"
                 priority
@@ -93,7 +93,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white"
         >
-          AAKASH SUBEDI
+          RAHUL RAJ YADAV
         </motion.h1>
 
         {/* Subtitle */}
@@ -104,7 +104,7 @@ export default function HeroSection() {
           className="mb-6"
         >
           <p className="text-lg md:text-xl text-zinc-400 font-light tracking-wider mb-2">
-            FULL STACK DEVELOPER
+            TECH LEAD & BACKEND ENGINEER
           </p>
         </motion.div>
 
@@ -115,7 +115,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           className="text-zinc-400 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed"
         >
-          Hello folks, I'm Aakash. Welcome to my digital space. Scroll down to
+          Hello folks, I'm Rahul. Welcome to my digital space. Scroll down to
           explore my journey, projects, and the technologies I'm passionate
           about. I'd love to hear your thoughts and feedback.
         </motion.p>

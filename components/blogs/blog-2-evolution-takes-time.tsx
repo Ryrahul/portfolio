@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const blogMeta = {
   title: "Evolution Takes Time",
-  author: "Aakash Subedi",
+  author: "Rahul Raj Yadav",
   date: "2026-02-01",
   readTime: "5 min read",
   tags: ["Reflection", "Growth", "Life"],

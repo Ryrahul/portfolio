@@ -15,48 +15,59 @@ const r = chalk.red;
 const divider = d("─".repeat(56));
 
 const header = `
-  ${b("Aakash Subedi")}  ${d("///")}  ${w("Software Engineer")}
-  ${d("Bengaluru, India")}
+  ${b("Rahul Raj Yadav")}  ${d("///")}  ${w("Tech Lead - Backend Engineering")}
+  ${d("India")}
 `;
 
 const experience = `
   ${y.bold("EXPERIENCE")}
 
-  ${w("Software Engineer")}  ${d("@")} ${c("Nihin Media K.K.")}
+  ${w("AI Engineer")}  ${d("@")} ${c("IDEfforts")}
+  ${d("▸ June 2026 - Present")}
+
+  ${w("Founding Backend & AI Engineer")}  ${d("@")} ${c("GradeLab")}
   ${d("▸ January 2026 - Present")}
 
-  ${w("SDE Intern")}  ${d("@")} ${c("Ainocular")}
-  ${d("▸ July 2025 - December 2025")}
+  ${w("Tech Lead - Backend Engineering")}  ${d("@")} ${c("Hyperce")}
+  ${d("▸ April 2023 - June 2026")}
 
-  ${w("SDE Intern")}  ${d("@")} ${c("Lookaround.in")}
-  ${d("▸ Jan 2025 - June 2025")}
+  ${w("SDE Intern")}  ${d("@")} ${c("Galaxy.ai")}
+  ${d("▸ June 2025 - December 2025")}
+
+  ${w("Technical Lead")}  ${d("@")} ${c("GDSC")}
+  ${d("▸ August 2023 - June 2025")}
 `;
 
 const techStack = `
   ${m.bold("TECH STACK")}
 
-  Typescript, Python, Go, AWS, Postgresdb,
-  Redis, Docker, React.js, Next.js,
-  Express.js, Nest.js, FastAPI ${d("...and more")}
+  TypeScript, Node.js, NestJS, Express.js, Next.js,
+  React, GraphQL, Go, Python, FastAPI, PostgreSQL,
+  MongoDB, Redis, Docker, K8s, Serverless, AWS,
+  LangChain, LangGraph, Mastra, Vendure ${d("...and more")}
 `;
 
 const projects = `
   ${r.bold("PROJECTS")}
 
-  ${c("◆")} ${b("Study Sync")}
-    ${d("Platform that syncs students to study in group")}
-  ${c("◆")} ${b("Express Backend Agent")}
-    ${d("Agent that writes end to end backend in express")}
-  ${c("◆")} ${b("CLI Music Player")}
-    ${d("Cli based music player, that scrapes musics via youtube")}
-  ${c("◆")} ${b("Google Docs Clone")}
-    ${d("Real-time collaborative text editor with permissions")}
-  ${c("◆")} ${b("Zomato MCP")}
-    ${d("AI agent that manages food items via Zomato")}
-  ${c("◆")} ${b("Splitwise Clone")}
-    ${d("Bill splitting app with expense tracking")}
+  ${c("◆")} ${b("Vendure Plugin Ecosystem")}
+    ${d("8+ publishable Vendure plugins — search, AI, promos, FAQ, auth")}
+  ${c("◆")} ${b("Vendure AI")}
+    ${d("AI shopping assistant — LLM chat, pgvector, cart, checkout")}
+  ${c("◆")} ${b("GPT Clone")}
+    ${d("A ChatGPT clone built from scratch")}
+  ${c("◆")} ${b("type-faah")}
+    ${d("Fun vibe-coded keyboard typing test app")}
 
-  ${d.italic("Note: Every saturday/sunday i build a lot of projects")}
+  ${d.italic("More at github.com/Ryrahul")}
+`;
+
+const openSource = `
+  ${g.bold("OPEN SOURCE")}
+
+  ${c("◆")} Core contributor to ${b("Vendure")} — 27-30+ merged PRs
+  ${c("◆")} Published npm packages under ${b("@rahul_vendure")} scope
+  ${c("◆")} Vendure Enthusiast badge holder
 `;
 
 const education = `
@@ -68,18 +79,18 @@ const education = `
 const hobbies = `
   ${g.bold("HOBBIES")}
 
-  ${d("▸")} Reading books  ${d("▸")} Writing poems
+  ${d("▸")} Swimming  ${d("▸")} Riding bikes  ${d("▸")} Trying new technologies
 `;
 
 const links = `
   ${c.bold("LINKS")}
 
-  ${d("GitHub")}    ${c("github.com/subediaakash")}
-  ${d("LinkedIn")}  ${c("linkedin.com/in/aakash-subedi-a9986625a")}
-  ${d("Twitter")}   ${c("x.com/void_aakash")}
-  ${d("Email")}     ${c("contact.aakash77@gmail.com")}
-  ${d("Web")}       ${c("aksh.work")}
-  ${d("Blog")}      ${c("aksh.work/blogs")}
+  ${d("GitHub")}    ${c("github.com/Ryrahul")}
+  ${d("LinkedIn")}  ${c("linkedin.com/in/rahul-raj-yadav-03b06b258")}
+  ${d("Twitter")}   ${c("x.com/ry_rahull")}
+  ${d("npm")}       ${c("npmjs.com/settings/rahul_vendure/packages")}
+  ${d("Blog")}      ${c("hashnode.com/@ryrahul")}
+  ${d("Email")}     ${c("rahul.yadav@idefforts.com")}
 `;
 
 const card = [
@@ -90,6 +101,8 @@ const card = [
   techStack,
   divider,
   projects,
+  divider,
+  openSource,
   divider,
   education,
   divider,
@@ -102,7 +115,7 @@ const boxed = boxen(card, {
   padding: 1,
   borderStyle: "round",
   borderColor: "cyan",
-  title: "devaakash",
+  title: "ryrahul",
   titleAlignment: "center",
 });
 

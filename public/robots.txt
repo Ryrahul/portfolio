@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.aksh.work/sitemap.xml
+Sitemap: https://rahulrajyadav.dev/sitemap.xml
 
 # Host
-Host: https://www.aksh.work
+Host: https://rahulrajyadav.dev

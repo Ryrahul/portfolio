@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const blogMeta = {
   title: "My 2025 Session",
-  author: "Aakash Subedi",
+  author: "Rahul Raj Yadav",
   date: "2025-12-27",
   readTime: "4 min read",
   tags: ["Reflection", "Growth", "Life"],

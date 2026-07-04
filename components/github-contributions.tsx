@@ -27,7 +27,7 @@ export default function GitHubContributions() {
   return (
     <div className="w-full">
       <GitHubCalendar
-        username="subediaakash"
+        username="Ryrahul"
         transformData={processContributions}
         totalCount={totalCount}
         hideColorLegend={false}

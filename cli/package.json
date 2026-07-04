@@ -1,17 +1,17 @@
 {
-  "name": "devaakash",
+  "name": "ryrahul",
   "version": "1.0.0",
-  "description": "Aakash Subedi's portfolio in your terminal",
+  "description": "Rahul Raj Yadav's portfolio in your terminal",
   "bin": {
-    "devaakash": "./index.js"
+    "ryrahul": "./index.js"
   },
   "keywords": [
     "portfolio",
     "cli",
     "business-card",
-    "aakash-subedi"
+    "rahul-raj-yadav"
   ],
-  "author": "Aakash Subedi <contact.aakash77@gmail.com>",
+  "author": "Rahul Raj Yadav <rahul.yadav@idefforts.com>",
   "license": "MIT",
   "dependencies": {
     "boxen": "^8.0.1",
