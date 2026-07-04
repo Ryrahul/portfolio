@@ -3,14 +3,13 @@
 import { useEffect, useRef } from "react";
 
 const COLORS = [
-  "#60a5fa", // blue-400
-  "#3b82f6", // blue-500
-  "#2563eb", // blue-600
-  "#93c5fd", // blue-300
-  "#7dd3fc", // sky-300
-  "#38bdf8", // sky-400
-  "#a5b4fc", // indigo-300
-  "#ffffff", // bright star
+  "#60a5fa",
+  "#3b82f6",
+  "#93c5fd",
+  "#7dd3fc",
+  "#38bdf8",
+  "#a5b4fc",
+  "#ffffff",
 ];
 
 interface Star {
@@ -21,115 +20,118 @@ interface Star {
   alpha: number;
   size: number;
   color: string;
-  isBright: boolean; // renders as 4-pointed star
 }
 
-function drawStar4(ctx: CanvasRenderingContext2D, x: number, y: number, r: number) {
-  ctx.beginPath();
-  for (let i = 0; i < 8; i++) {
-    const angle = (i * Math.PI) / 4;
-    const radius = i % 2 === 0 ? r : r * 0.35;
-    ctx.lineTo(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
-  }
-  ctx.closePath();
-  ctx.fill();
-}
+const MAX_PARTICLES = 80;
 
 export default function SlashCursor() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stars = useRef<Star[]>([]);
   const cursor = useRef({ x: -200, y: -200 });
   const animFrame = useRef<number>(0);
+  const lastSpawn = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
+    let dpr = window.devicePixelRatio || 1;
+
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
     window.addEventListener("resize", resize);
 
     const spawn = (x: number, y: number) => {
-      const count = Math.floor(Math.random() * 3) + 3;
+      const count = 2;
       for (let i = 0; i < count; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 1.2 + 0.2;
-        const isBright = Math.random() < 0.2;
-        stars.current.push({
-          x: x + (Math.random() - 0.5) * 6,
-          y: y + (Math.random() - 0.5) * 6,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.4,
-          alpha: 1,
-          size: isBright ? Math.random() * 3 + 2 : Math.random() * 1.5 + 0.5,
-          color: COLORS[Math.floor(Math.random() * COLORS.length)],
-          isBright,
-        });
+        const speed = Math.random() * 0.8 + 0.2;
+        if (stars.current.length >= MAX_PARTICLES) {
+          // Reuse oldest particle instead of allocating
+          const old = stars.current.shift()!;
+          old.x = x + (Math.random() - 0.5) * 4;
+          old.y = y + (Math.random() - 0.5) * 4;
+          old.vx = Math.cos(angle) * speed;
+          old.vy = Math.sin(angle) * speed - 0.3;
+          old.alpha = 1;
+          old.size = Math.random() * 1.5 + 0.5;
+          old.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+          stars.current.push(old);
+        } else {
+          stars.current.push({
+            x: x + (Math.random() - 0.5) * 4,
+            y: y + (Math.random() - 0.5) * 4,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 0.3,
+            alpha: 1,
+            size: Math.random() * 1.5 + 0.5,
+            color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          });
+        }
       }
-      if (stars.current.length > 300) stars.current.splice(0, 100);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      cursor.current = { x: e.clientX, y: e.clientY };
-      spawn(e.clientX, e.clientY);
+      cursor.current.x = e.clientX;
+      cursor.current.y = e.clientY;
+      // Throttle spawning to ~every 16ms
+      const now = performance.now();
+      if (now - lastSpawn.current > 16) {
+        lastSpawn.current = now;
+        spawn(e.clientX, e.clientY);
+      }
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      stars.current = stars.current.filter((s) => s.alpha > 0.015);
+      // Remove dead particles in-place
+      let writeIdx = 0;
+      for (let i = 0; i < stars.current.length; i++) {
+        if (stars.current[i].alpha > 0.02) {
+          stars.current[writeIdx++] = stars.current[i];
+        }
+      }
+      stars.current.length = writeIdx;
 
-      for (const s of stars.current) {
+      // Draw all particles — no shadowBlur (the main perf killer)
+      for (let i = 0; i < stars.current.length; i++) {
+        const s = stars.current[i];
         s.x += s.vx;
         s.y += s.vy;
-        s.vy += 0.018; // very gentle gravity — drift, not fall
+        s.vy += 0.015;
         s.vx *= 0.99;
-        s.alpha *= 0.96;
+        s.alpha *= 0.95;
 
-        ctx.save();
         ctx.globalAlpha = s.alpha;
-
-        if (s.isBright) {
-          ctx.shadowColor = "#60a5fa";
-          ctx.shadowBlur = 10;
-          ctx.fillStyle = s.color;
-          drawStar4(ctx, s.x, s.y, s.size);
-        } else {
-          ctx.shadowColor = "#3b82f6";
-          ctx.shadowBlur = 5;
-          ctx.fillStyle = s.color;
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        ctx.restore();
+        ctx.fillStyle = s.color;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fill();
       }
 
-      // Cursor: glowing orb
+      // Cursor dot
       const { x, y } = cursor.current;
-      ctx.save();
-      // Outer halo
-      const grad = ctx.createRadialGradient(x, y, 0, x, y, 14);
-      grad.addColorStop(0, "rgba(96,165,250,0.25)");
-      grad.addColorStop(1, "rgba(96,165,250,0)");
-      ctx.fillStyle = grad;
+      ctx.globalAlpha = 0.2;
+      ctx.fillStyle = "#60a5fa";
       ctx.beginPath();
-      ctx.arc(x, y, 14, 0, Math.PI * 2);
+      ctx.arc(x, y, 12, 0, Math.PI * 2);
       ctx.fill();
-      // Core dot
-      ctx.shadowColor = "#60a5fa";
-      ctx.shadowBlur = 10;
+
+      ctx.globalAlpha = 1;
       ctx.fillStyle = "#ffffff";
       ctx.beginPath();
       ctx.arc(x, y, 3, 0, Math.PI * 2);
       ctx.fill();
-      ctx.restore();
 
       animFrame.current = requestAnimationFrame(draw);
     };
