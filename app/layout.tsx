@@ -19,7 +19,7 @@ const siteConfig = {
   ogImage: "/me.png",
   twitterHandle: "@ry_rahull",
   email: "rahul.yadav@idefforts.com",
-  location: "India",
+  location: "Nepal",
   github: "https://github.com/Ryrahul",
   linkedin: "https://www.linkedin.com/in/rahul-raj-yadav-03b06b258/",
   twitter: "https://x.com/ry_rahull",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "Vendure",
     "PostgreSQL",
     "Open Source",
-    "India",
+    "Nepal",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -128,7 +128,7 @@ const personSchema = {
   description: siteConfig.description,
   address: {
     "@type": "PostalAddress",
-    addressCountry: "IN",
+    addressCountry: "NP",
   },
   sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.twitter],
 };

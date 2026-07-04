@@ -21,7 +21,7 @@ export default function Home() {
         <div>
           <h1 className="text-base font-medium">{profile.name}</h1>
           <p>Profession : {profile.profession}</p>
-          <p>{profile.location}</p>
+          <p>{profile.location} <span role="img" aria-label="Nepal flag">🇳🇵</span></p>
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
             <a href={profile.github} target="_blank" rel="noopener noreferrer">
               GitHub

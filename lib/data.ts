@@ -1,7 +1,7 @@
 export const profile = {
   name: "Rahul Raj Yadav",
   profession: "Tech Lead - Backend Engineering",
-  location: "India",
+  location: "Nepal",
   email: "rahul.yadav@idefforts.com",
   website: "https://rahulrajyadav.dev",
   github: "https://github.com/Ryrahul",
