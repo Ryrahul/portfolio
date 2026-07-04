@@ -33,7 +33,7 @@ export default function Home() {
               Twitter
             </a>
             <a href={profile.npm} target="_blank" rel="noopener noreferrer">
-              npm
+              NPM
             </a>
             <a href={profile.hashnode} target="_blank" rel="noopener noreferrer">
               Blog
@@ -86,14 +86,8 @@ export default function Home() {
                   )}
                 </p>
                 <div className="ml-4">
-                  {group.roles.map((role, i) => (
-                    <div key={role.title} className="relative pl-5 pb-2">
-                      {/* Vertical line */}
-                      {i < group.roles.length - 1 && (
-                        <div className="absolute left-[5px] top-[10px] bottom-0 w-px bg-zinc-300" />
-                      )}
-                      {/* Dot */}
-                      <div className="absolute left-0 top-[6px] w-[11px] h-[11px] rounded-full border-2 border-zinc-400 bg-white" />
+                  {group.roles.map((role) => (
+                    <div key={role.title} className="pl-4 pb-2">
                       <p className="font-medium text-sm">{role.title}</p>
                       <p className="text-zinc-500 text-sm">{role.period}</p>
                     </div>

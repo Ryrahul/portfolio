@@ -142,7 +142,7 @@ export const projects = [
     url: "https://github.com/Ryrahul/Gpt-Clone",
   },
   {
-    name: "type-faah",
+    name: "Type-Faah",
     description:
       "A fun, vibe-coded keyboard typing test app. Built for laughs, not for production",
     url: "https://github.com/Ryrahul/type-faah",
