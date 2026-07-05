@@ -152,7 +152,15 @@ export default function Home() {
       <section className="mb-10">
         <h2 className="font-medium mb-3">Open Source :</h2>
         <p className="ml-2 mb-3">
-          - Core contributor to{" "}
+          -{" "}
+          <a
+            href="https://vendure.io/enthusiasts"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            #1 Vendure Enthusiast
+          </a>{" "}
+          (390 VXP) — top contributor in the{" "}
           <a
             href={openSourceContributions.vendure.url}
             target="_blank"
