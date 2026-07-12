@@ -65,7 +65,7 @@ const projects = `
 const openSource = `
   ${g.bold("OPEN SOURCE")}
 
-  ${c("◆")} Core contributor to ${b("Vendure")} — 27-30+ merged PRs
+  ${c("◆")} Core contributor to ${b("Vendure")} — 30+ merged PRs
   ${c("◆")} Published npm packages under ${b("@rahul_vendure")} scope
   ${c("◆")} Vendure Enthusiast badge holder
 `;

@@ -14,7 +14,7 @@ const siteConfig = {
   name: "Rahul Raj Yadav",
   title: "Rahul Raj Yadav - Tech Lead & Backend Engineer",
   description:
-    "I'm Rahul Raj Yadav, a Tech Lead & Backend Engineer specializing in TypeScript, Node.js, NestJS, GraphQL, Vendure, and PostgreSQL. Core contributor to Vendure with 27-30+ merged PRs. Explore my projects, open source work, and blog.",
+    "I'm Rahul Raj Yadav, a Tech Lead & Backend Engineer specializing in TypeScript, Node.js, NestJS, GraphQL, Vendure, and PostgreSQL. Core contributor to Vendure with 30+ merged PRs. Explore my projects, open source work, and blog.",
   url: "https://rahulrajyadav.dev",
   ogImage: "/me.png",
   twitterHandle: "@ry_rahull",
