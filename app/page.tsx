@@ -174,7 +174,7 @@ export default function Home() {
           >
             #1 Vendure Enthusiast
           </a>{" "}
-          (450 VXP) — top contributor in the{" "}
+          (490 VXP) — top contributor in the{" "}
           <a
             href={openSourceContributions.vendure.url}
             target="_blank"
