@@ -4,6 +4,8 @@ import { profile, experience, techStack, projects, education, hobbies, openSourc
 import GitHubContributions from "@/components/github-contributions";
 import TypingArea from "@/components/typing-area";
 import CompanyHoverCard from "@/components/company-hover-card";
+import NpxCard from "@/components/npx-card";
+import LatestPush from "@/components/latest-push";
 
 export default function Home() {
   return (
@@ -40,6 +42,7 @@ export default function Home() {
             </a>
             <a href={`mailto:${profile.email}`}>Email</a>
           </div>
+          <NpxCard />
         </div>
       </header>
 
@@ -255,6 +258,7 @@ export default function Home() {
       {/* GitHub Contributions */}
       <section className="mb-10">
         <h2 className="font-medium mb-4">GitHub Contributions :</h2>
+        <LatestPush />
         <div className="overflow-x-auto">
           <GitHubContributions />
         </div>
