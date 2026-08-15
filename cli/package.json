@@ -17,5 +17,20 @@
     "boxen": "^8.0.1",
     "chalk": "^5.4.1"
   },
-  "type": "module"
+  "type": "module",
+  "homepage": "https://rahulweb.online",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryrahul/portfolio.git",
+    "directory": "cli"
+  },
+  "bugs": {
+    "url": "https://github.com/Ryrahul/portfolio/issues"
+  },
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
 }

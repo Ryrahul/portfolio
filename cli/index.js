@@ -16,7 +16,7 @@ const divider = d("─".repeat(56));
 
 const header = `
   ${b("Rahul Raj Yadav")}  ${d("///")}  ${w("Tech Lead - Backend Engineering")}
-  ${d("India")}
+  ${d("Nepal")}
 `;
 
 const experience = `
