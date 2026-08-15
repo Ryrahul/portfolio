@@ -110,32 +110,43 @@ export default function Home() {
       {/* Projects */}
       <section className="mb-10">
         <h2 className="font-medium mb-3">Projects :</h2>
-        {projects.map((project) => (
-          <div key={project.name} className="mb-1 ml-2">
-            <p>
-              -{" "}
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                {project.name}
-              </a>{" "}
-              : {project.description}
-              {"liveUrl" in project && project.liveUrl && (
-                <>
-                  {" "}
-                  (
-                  <a
-                    href={project.liveUrl as string}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-500"
-                  >
-                    live
-                  </a>
-                  )
-                </>
-              )}
-            </p>
-          </div>
-        ))}
+        {projects.map((project) => {
+          const liveUrl =
+            "liveUrl" in project ? (project.liveUrl as string) : undefined;
+          return (
+            <div key={project.name} className="mb-1 ml-2">
+              <p>
+                -{" "}
+                {/* The name opens the working product when there is one —
+                    a visitor should land on the thing, not the source. The
+                    repo stays one click away. */}
+                <a
+                  href={liveUrl ?? project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.name}
+                </a>{" "}
+                : {project.description}
+                {liveUrl && (
+                  <>
+                    {" "}
+                    (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-500"
+                    >
+                      code
+                    </a>
+                    )
+                  </>
+                )}
+              </p>
+            </div>
+          );
+        })}
         <p className="mt-2 ml-2 text-zinc-500">
           More projects at{" "}
           <a
