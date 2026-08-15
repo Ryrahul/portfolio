@@ -125,6 +125,13 @@ export const techStack = [
 
 export const projects = [
   {
+    name: "Notebook",
+    description:
+      "Infinite-canvas study notebooks — handwriting, diagrams and images on every page, autosave that survives going offline, full-text search across canvas contents, study streaks, and read-only share links",
+    url: "https://github.com/Ryrahul/Learning-Notebook",
+    liveUrl: "https://notebook.rahulweb.online/",
+  },
+  {
     name: "Vendure Plugin Ecosystem",
     description:
       "Monorepo of 8+ independently publishable Vendure plugins — Meilisearch integration, AI chat, promotions, FAQ, phone auth, wishlist, and more",
