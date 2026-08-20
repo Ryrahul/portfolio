@@ -12,11 +12,14 @@ const y = chalk.yellow;
 const m = chalk.magenta;
 const r = chalk.red;
 
+// ANSI clickable hyperlink: \e]8;;URL\aTEXT\e]8;;\a
+const link = (text, url) => `\u001B]8;;${url}\u0007${c(text)}\u001B]8;;\u0007`;
+
 const divider = d("─".repeat(56));
 
 const header = `
   ${b("Rahul Raj Yadav")}  ${d("///")}  ${w("Tech Lead - Backend Engineering")}
-  ${d("Nepal")}
+  ${d("Nepal 🇳🇵")}
 `;
 
 const experience = `
@@ -28,8 +31,10 @@ const experience = `
   ${w("Founding Backend & AI Engineer")}  ${d("@")} ${c("GradeLab")}
   ${d("▸ January 2026 - Present")}
 
-  ${w("Tech Lead - Backend Engineering")}  ${d("@")} ${c("Hyperce")}
-  ${d("▸ April 2023 - June 2026")}
+  ${w("Hyperce")}  ${d("(3 yrs 3 mos)")}
+    ${w("Tech Lead - Backend Engineering")}  ${d("▸ Jan 2026 - Jun 2026")}
+    ${w("AI Engineer")}  ${d("▸ Oct 2025 - Jan 2026")}
+    ${w("Back End Developer")}  ${d("▸ Apr 2023 - Oct 2025")}
 
   ${w("SDE Intern")}  ${d("@")} ${c("Galaxy.ai")}
   ${d("▸ June 2025 - December 2025")}
@@ -50,24 +55,30 @@ const techStack = `
 const projects = `
   ${r.bold("PROJECTS")}
 
-  ${c("◆")} ${b("Vendure Plugin Ecosystem")}
+  ${c("◆")} ${link("Notebook", "https://github.com/Ryrahul/Learning-Notebook")}
+    ${d("Infinite-canvas study notebooks — handwriting, diagrams, autosave")}
+    ${d("▸")} ${link("notebook.rahulweb.online", "https://notebook.rahulweb.online/")}
+  ${c("◆")} ${link("Vendure Plugin Ecosystem", "https://github.com/Ryrahul/Vendure-plugins")}
     ${d("8+ publishable Vendure plugins — search, AI, promos, FAQ, auth")}
-  ${c("◆")} ${b("Vendure AI")}
+  ${c("◆")} ${link("Vendure AI", "https://github.com/Ryrahul/Vendure-ai")}
     ${d("AI shopping assistant — LLM chat, pgvector, cart, checkout")}
-  ${c("◆")} ${b("GPT Clone")}
+  ${c("◆")} ${link("GPT Clone", "https://github.com/Ryrahul/Gpt-Clone")}
     ${d("A ChatGPT clone built from scratch")}
-  ${c("◆")} ${b("type-faah")}
+  ${c("◆")} ${link("Type-Faah", "https://github.com/Ryrahul/type-faah")}
     ${d("Fun vibe-coded keyboard typing test app")}
+    ${d("▸")} ${link("bakchodi-type.vercel.app", "https://bakchodi-type.vercel.app/")}
 
-  ${d.italic("More at github.com/Ryrahul")}
+  ${d.italic(`More at ${link("github.com/Ryrahul", "https://github.com/Ryrahul?tab=repositories")}`)}
 `;
 
 const openSource = `
   ${g.bold("OPEN SOURCE")}
 
-  ${c("◆")} Core contributor to ${b("Vendure")} — 30+ merged PRs
-  ${c("◆")} Published npm packages under ${b("@rahul_vendure")} scope
-  ${c("◆")} Vendure Enthusiast badge holder
+  ${c("◆")} #1 ${link("Vendure Enthusiast", "https://vendure.io/enthusiasts")} (450 VXP)
+    Top contributor to ${link("Vendure", "https://github.com/vendurehq/vendure")} (8.2k+ stars)
+    ${link("35+ merged PRs", "https://github.com/vendurehq/vendure/pulls?q=is%3Apr+author%3ARyrahul+is%3Amerged")}
+  ${c("◆")} Contributor to ${link("Vex", "https://github.com/SpaceParrots/vex")} — CLI & MCP server for Vendure
+  ${c("◆")} Published npm packages under ${link("@rahul_vendure", "https://www.npmjs.com/settings/rahul_vendure/packages")} scope
 `;
 
 const education = `
@@ -82,15 +93,15 @@ const hobbies = `
   ${d("▸")} Swimming  ${d("▸")} Riding bikes  ${d("▸")} Trying new technologies
 `;
 
-const links = `
+const links_section = `
   ${c.bold("LINKS")}
 
-  ${d("GitHub")}    ${c("github.com/Ryrahul")}
-  ${d("LinkedIn")}  ${c("linkedin.com/in/rahul-raj-yadav-03b06b258")}
-  ${d("Twitter")}   ${c("x.com/ry_rahull")}
-  ${d("npm")}       ${c("npmjs.com/settings/rahul_vendure/packages")}
-  ${d("Blog")}      ${c("hashnode.com/@ryrahul")}
-  ${d("Email")}     ${c("rahul.yadav@idefforts.com")}
+  ${d("GitHub")}    ${link("github.com/Ryrahul", "https://github.com/Ryrahul")}
+  ${d("LinkedIn")}  ${link("linkedin.com/in/rahul-raj-yadav", "https://www.linkedin.com/in/rahul-raj-yadav-03b06b258/")}
+  ${d("Twitter")}   ${link("x.com/ry_rahull", "https://x.com/ry_rahull")}
+  ${d("NPM")}       ${link("@rahul_vendure", "https://www.npmjs.com/settings/rahul_vendure/packages")}
+  ${d("Blog")}      ${link("hashnode.com/@ryrahul", "https://hashnode.com/@ryrahul")}
+  ${d("Email")}     ${link("rahul.yadav@idefforts.com", "mailto:rahul.yadav@idefforts.com")}
 `;
 
 const card = [
@@ -108,7 +119,7 @@ const card = [
   divider,
   hobbies,
   divider,
-  links,
+  links_section,
 ].join("\n");
 
 const boxed = boxen(card, {
