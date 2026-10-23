@@ -165,62 +165,84 @@ export default function Home() {
       {/* Open Source Contributions */}
       <section className="mb-10">
         <h2 className="font-medium mb-3">Open Source :</h2>
-        <p className="ml-2 mb-3">
-          -{" "}
-          <a
-            href="https://vendure.io/enthusiasts"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            #1 Vendure Enthusiast
-          </a>{" "}
-          (490 VXP) — top contributor in the{" "}
-          <a
-            href={openSourceContributions.vendure.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vendure
-          </a>{" "}
-          e-commerce framework (8.2k+ stars) with{" "}
-          <a
-            href={openSourceContributions.vendure.prsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {openSourceContributions.vendure.prCount} merged PRs
-          </a>
-        </p>
-        <p className="ml-2 mb-3">
-          - Contributor to{" "}
-          <a
-            href={openSourceContributions.vex.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vex
-          </a>{" "}
-          — CLI tool & MCP server for Vendure Admin API (
-          <a
-            href={openSourceContributions.vex.prUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            PR
-          </a>
-          )
-        </p>
-        <p className="ml-2 mb-3">
-          - Published npm packages under{" "}
-          <a
-            href={openSourceContributions.npmPackages}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @rahul_vendure
-          </a>{" "}
-          scope
-        </p>
+        <div className="mb-4 ml-2">
+          <p>
+            -{" "}
+            <a
+              href="https://vendure.io/enthusiasts"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              #1 Vendure Enthusiast
+            </a>
+            <span className="text-zinc-500">
+              {" · "}
+              {openSourceContributions.vendure.vxp} VXP
+            </span>
+          </p>
+          <p className="ml-4 mt-0.5 text-zinc-500 leading-relaxed">
+            Top contributor to{" "}
+            <a
+              href={openSourceContributions.vendure.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500"
+            >
+              Vendure
+            </a>{" "}
+            ({openSourceContributions.vendure.stars} stars) with{" "}
+            <a
+              href={openSourceContributions.vendure.prsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500"
+            >
+              {openSourceContributions.vendure.prCount} merged PRs
+            </a>
+            .
+          </p>
+        </div>
+        <div className="mb-4 ml-2">
+          <p>
+            -{" "}
+            <a
+              href={openSourceContributions.vex.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vex
+            </a>
+            <span className="text-zinc-500">
+              {" · "}
+              <a
+                href={openSourceContributions.vex.prUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-500"
+              >
+                PR
+              </a>
+            </span>
+          </p>
+          <p className="ml-4 mt-0.5 text-zinc-500 leading-relaxed">
+            Contributor to a CLI tool and MCP server for the Vendure Admin API.
+          </p>
+        </div>
+        <div className="mb-4 ml-2">
+          <p>
+            -{" "}
+            <a
+              href={openSourceContributions.npmPackages}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @rahul_vendure
+            </a>
+          </p>
+          <p className="ml-4 mt-0.5 text-zinc-500 leading-relaxed">
+            Published npm packages under this scope.
+          </p>
+        </div>
         <div className="ml-2 mt-4">
           <a
             href={openSourceContributions.vendure.profileUrl}

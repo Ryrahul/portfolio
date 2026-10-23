@@ -169,9 +169,11 @@ export const openSourceContributions = {
     repo: "vendurehq/vendure",
     url: "https://github.com/vendurehq/vendure",
     prsUrl: "https://github.com/vendurehq/vendure/pulls?q=is%3Apr+author%3ARyrahul+is%3Amerged",
-    prCount: "35+",
+    prCount: "50+",
+    vxp: 643,
+    stars: "8.5k+",
     description:
-      "Core contributor to Vendure e-commerce framework with 35+ merged PRs",
+      "Core contributor to Vendure e-commerce framework with 50+ merged PRs",
     badgeUrl: "https://vendure.io/enthusiasts/Ryrahul/badge?theme=light",
     profileUrl: "https://vendure.io/enthusiasts/Ryrahul",
   },

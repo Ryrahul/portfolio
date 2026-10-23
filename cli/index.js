@@ -77,9 +77,9 @@ const projects = `
 const openSource = `
   ${g.bold("OPEN SOURCE")}
 
-  ${c("◆")} #1 ${link("Vendure Enthusiast", "https://vendure.io/enthusiasts")} (450 VXP)
-    Top contributor to ${link("Vendure", "https://github.com/vendurehq/vendure")} (8.2k+ stars)
-    ${link("35+ merged PRs", "https://github.com/vendurehq/vendure/pulls?q=is%3Apr+author%3ARyrahul+is%3Amerged")}
+  ${c("◆")} #1 ${link("Vendure Enthusiast", "https://vendure.io/enthusiasts")} (643 VXP)
+    Top contributor to ${link("Vendure", "https://github.com/vendurehq/vendure")} (8.5k+ stars)
+    ${link("50+ merged PRs", "https://github.com/vendurehq/vendure/pulls?q=is%3Apr+author%3ARyrahul+is%3Amerged")}
   ${c("◆")} Contributor to ${link("Vex", "https://github.com/SpaceParrots/vex")} — CLI & MCP server for Vendure
   ${c("◆")} Published npm packages under ${link("@rahul_vendure", "https://www.npmjs.com/settings/rahul_vendure/packages")} scope
 `;
