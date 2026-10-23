@@ -125,6 +125,13 @@ export const techStack = [
 
 export const projects = [
   {
+    name: "Session Relay",
+    description:
+      "Share coding-agent sessions across Claude Code, OpenCode and Codex — /share in one agent, /pickup in another. MCP server, secret redaction, team web app, self-hosted with one docker compose up, CLI on npm",
+    url: "https://github.com/Ryrahul/session-relay",
+    liveUrl: "https://relay.rahulweb.online/",
+  },
+  {
     name: "Notebook",
     description:
       "Infinite-canvas study notebooks — handwriting, diagrams and images on every page, autosave that survives going offline, full-text search across canvas contents, study streaks, and read-only share links",

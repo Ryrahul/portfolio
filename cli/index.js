@@ -55,6 +55,9 @@ const techStack = `
 const projects = `
   ${r.bold("PROJECTS")}
 
+  ${c("◆")} ${link("Session Relay", "https://github.com/Ryrahul/session-relay")}
+    ${d("Hand off agent sessions: Claude Code, OpenCode, Codex")}
+    ${d("▸")} ${link("relay.rahulweb.online", "https://relay.rahulweb.online/")} ${d("·")} ${link("npm i -g session-relay", "https://www.npmjs.com/package/session-relay")}
   ${c("◆")} ${link("Notebook", "https://github.com/Ryrahul/Learning-Notebook")}
     ${d("Infinite-canvas study notebooks — handwriting, diagrams, autosave")}
     ${d("▸")} ${link("notebook.rahulweb.online", "https://notebook.rahulweb.online/")}
