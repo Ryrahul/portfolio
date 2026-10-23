@@ -127,27 +127,27 @@ export const projects = [
   {
     name: "Session Relay",
     description:
-      "Share coding-agent sessions across Claude Code, OpenCode and Codex — /share in one agent, /pickup in another. MCP server, secret redaction, team web app, self-hosted with one docker compose up, CLI on npm",
+      "Hand off coding-agent sessions between Claude Code, OpenCode and Codex — /share in one, /pickup in another. Self-hosted, CLI on npm.",
     url: "https://github.com/Ryrahul/session-relay",
     liveUrl: "https://relay.rahulweb.online/",
   },
   {
     name: "Notebook",
     description:
-      "Infinite-canvas study notebooks — handwriting, diagrams and images on every page, autosave that survives going offline, full-text search across canvas contents, study streaks, and read-only share links",
+      "Infinite-canvas study notebooks — handwriting, diagrams, offline autosave, full-text search and share links.",
     url: "https://github.com/Ryrahul/Learning-Notebook",
     liveUrl: "https://notebook.rahulweb.online/",
   },
   {
     name: "Vendure Plugin Ecosystem",
     description:
-      "Monorepo of 8+ independently publishable Vendure plugins — Meilisearch integration, AI chat, promotions, FAQ, phone auth, wishlist, and more",
+      "8+ publishable Vendure plugins — Meilisearch, AI chat, promotions, FAQ, phone auth, wishlist.",
     url: "https://github.com/Ryrahul/Vendure-plugins",
   },
   {
     name: "Vendure AI",
     description:
-      "AI-powered shopping assistant for Vendure — LLM chat with 19 tools, pgvector semantic search, cart management, checkout, and admin dashboard chat",
+      "AI shopping assistant for Vendure — LLM chat with 19 tools, pgvector search, cart and checkout.",
     url: "https://github.com/Ryrahul/Vendure-ai",
   },
   {
@@ -158,7 +158,7 @@ export const projects = [
   {
     name: "Type-Faah",
     description:
-      "A fun, vibe-coded keyboard typing test app. Built for laughs, not for production",
+      "A fun, vibe-coded typing test. Built for laughs, not for production.",
     url: "https://github.com/Ryrahul/type-faah",
     liveUrl: "https://bakchodi-type.vercel.app/",
   },

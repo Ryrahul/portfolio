@@ -117,7 +117,7 @@ export default function Home() {
           const liveUrl =
             "liveUrl" in project ? (project.liveUrl as string) : undefined;
           return (
-            <div key={project.name} className="mb-1 ml-2">
+            <div key={project.name} className="mb-4 ml-2">
               <p>
                 -{" "}
                 {/* The name opens the working product when there is one —
@@ -129,12 +129,10 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   {project.name}
-                </a>{" "}
-                : {project.description}
+                </a>
                 {liveUrl && (
-                  <>
-                    {" "}
-                    (
+                  <span className="text-zinc-500">
+                    {" · "}
                     <a
                       href={project.url}
                       target="_blank"
@@ -143,9 +141,11 @@ export default function Home() {
                     >
                       code
                     </a>
-                    )
-                  </>
+                  </span>
                 )}
+              </p>
+              <p className="ml-4 mt-0.5 text-zinc-500 leading-relaxed">
+                {project.description}
               </p>
             </div>
           );
