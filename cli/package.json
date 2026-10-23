@@ -1,6 +1,6 @@
 {
   "name": "ryrahul",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Rahul Raj Yadav's portfolio in your terminal",
   "bin": {
     "ryrahul": "./index.js"
