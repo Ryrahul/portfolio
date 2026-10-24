@@ -127,7 +127,7 @@ export const projects = [
   {
     name: "Session Relay",
     description:
-      "Hand off coding-agent sessions between Claude Code, OpenCode and Codex — /share in one, /pickup in another. Self-hosted, CLI on npm.",
+      "Hand off coding-agent sessions between Claude Code, OpenCode, Codex and ZCode — /share in one, /pickup in another. Self-hosted, CLI on npm.",
     url: "https://github.com/Ryrahul/session-relay",
     liveUrl: "https://relay.rahulweb.online/",
   },
